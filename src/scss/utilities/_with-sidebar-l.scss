@@ -1,0 +1,22 @@
+.with-sidebar-left-l, .with-sidebar-right-l {
+  overflow: hidden;
+  --sidebar-flex-basis: auto;
+}
+
+.with-sidebar-left-l > *, .with-sidebar-right-l > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--sidebar-space, 1rem) / 2 * -1);
+}
+
+.with-sidebar-left-l > * > *, .with-sidebar-right-l > * > * {
+  margin: calc(var(--sidebar-space, 1rem) / 2);
+  flex-basis: var(--sidebar-flex-basis);
+  flex-grow: 1;
+}
+
+.with-sidebar-left-l > * > :last-child, .with-sidebar-right-l > * > :first-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: calc(50% - var(--sidebar-space, 1rem));
+}

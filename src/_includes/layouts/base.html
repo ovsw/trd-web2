@@ -1,0 +1,159 @@
+{% set assetHash = global.random() %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ metadata.title }}</title>
+
+    {# General critical styles #}    
+    <style>{% include "css/critical.css" %}</style>
+
+    {# Add facility for pages to delare an array of critical styles #}
+    {% if pageCriticalStyles %}
+      {% for item in pageCriticalStyles %}
+        <style>{% include item %}</style>
+      {% endfor %}
+    {% endif %}
+
+    {# General stylesheets #}
+    {# Adobe Fonts, if needed #}
+    {# <script>
+      (function(d) {
+        var config = {
+          kitId: 'pxo6uwl',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script> #}
+    <link rel="stylesheet" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'" />
+    {# animation CSS #}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    {# Add facility for pages to declare an array of stylesheet paths #}
+    {% if pageStylesheets %}
+      {% for item in pageStylesheets %}
+        <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'" />
+      {% endfor %}
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    {# <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+    
+    {% block headerScripts %}
+      
+    {% endblock %}
+  </head>
+
+  <body>
+    <div class="site-wrap">
+      <div class="main-layout">
+
+        <div class="margin-area">
+          t
+        </div>
+      
+        <div class="main-area">
+           {% include "partials/site-header.html" %}
+          
+          <main tabindex="-1" id="main-content">
+            {# {% block underHeader %}{% endblock %} #}
+            {% block content %}{% endblock %}
+          </main>
+
+          {% include "partials/site-footer.html" %}
+        </div>
+
+      </div>
+    </div>
+    {# /.site-wrap #}
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- JS -->
+    <script>
+      {# window.onload = function () {
+        lax.init()
+
+        // Add a driver that we use to control our animations
+        lax.addDriver('scrollY', function () {
+          return window.scrollY
+        })
+
+        // Add animation bindings to elements
+        lax.addElements('.myLax', {
+          scrollY: {
+            translateX: [
+              ["elInY", "elCenterY", "elOutY"],
+              ['screenWidth/2', 0, 0],
+            ]
+          }
+        })
+      } #}
+
+      var animation = bodymovin.loadAnimation({
+        // animationData: { /* ... */ },
+        container: document.getElementById('heroLottie'), // required
+        path: 'https://assets10.lottiefiles.com/packages/lf20_27cgfczo.json', // required
+        renderer: 'svg', // required
+        loop: true, // optional
+        autoplay: true, // optional
+        name: "Demo Animation", // optional
+      });
+
+      {# var windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      };
+
+
+      animation.addEventListener("DOMLoaded", function() {
+        // calculateScale();
+
+        window.addEventListener("scroll", function(ev) {
+  
+          var top = this.scrollY
+          //console.log('top:', top)
+          animation.goToAndStop(scale(top, 0, windowSize.h, 1, 119 ), true);
+
+          
+        }, false);
+
+
+      }); #}
+
+
+      function scale(num, in_min, in_max, out_min, out_max) {
+        return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+      }
+
+      var tooltips = document.querySelectorAll('.tooltipContainer span.tooltip');
+
+      
+
+      window.onmousemove = function (e) {
+          var x = (e.clientX - 60) + 'px',
+              y = (e.clientY - 65) + 'px';
+          for (var i = 0; i < tooltips.length; i++) {
+              tooltips[i].style.top = y;
+              tooltips[i].style.left = x;
+          }
+      }; 
+
+    </script>
+
+    {% block footerScripts %}
+      
+    {% endblock %}
+    <script src="/js/main.js"></script>
+  </body>
+</html>

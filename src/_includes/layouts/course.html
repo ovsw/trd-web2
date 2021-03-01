@@ -1,0 +1,50 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+  {# <script>console.log({{sitePage.content.sections | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+  {{pageHeader(siteCourse.content.title)}}
+{% endblock %} #}
+
+{% block content %}
+
+  <section class="section">
+    <div class="wrapper flow">
+      <h2>Descriere curs</h2>
+
+      {{ siteCourse.content.body | blocksToMarkdown | markdownify | safe}}
+    </div>
+  </section>
+  
+  <section class="modules">
+    <div class="wrapper flow">
+      <h2>Module Curs {{siteCourse.content.title}}</h2>
+
+      {% for module in siteCourse.content.modules %}
+        {% set module = module.content %}
+        <div class="flow">
+          <h3>{{module.title}}</h3>
+          <p>{{module.audience}}</p>
+          <p>Durată: {{module.duration}}</p>
+          <p>Mărime Grupă: {{module.classSize}}</p>
+          <p>Pret: {{module.price}} RON</p>
+          {# {{module.Curriculum | blocksToMarkdown | markdownify | safe }} #}
+          <div class="cluster-l">
+            <div>
+              <a class="button button--light" href="{{module.slug.current}}"><span>Detalii modul</span></a>
+              <a class="button button--light" href="#"><span>Vezi Sesiuni</span></a>
+              <a class="button button--accentLight" href="#"><span>Înscriere</span></a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </section>
+  
+  
+{% endblock %}

@@ -1,0 +1,290 @@
+// First up: config and functions
+@import './config';
+
+// Next: pull in gorko for design tokens
+@import '../../node_modules/gorko/gorko.scss';
+
+@import 'reset';
+
+@import '../fonts/fonts.css';
+
+// Global styles start
+:root {
+  --flow-space: 1.875rem;
+
+  --ratio: 1.333;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --s6: calc(var(--s5) * var(--ratio));
+  --s7: calc(var(--s6) * var(--ratio));
+  --s8: calc(var(--s7) * var(--ratio));
+}
+
+body {
+  background: get-color('dark-shade');
+  color: get-color('light');
+  line-height: 1.635;
+  font-size: get-size('400');
+
+  @include apply-utility('font', 'base');
+  padding-left: 80px;
+
+}
+
+a:not([class]) {
+  color: currentColor;
+  text-decoration-color: get-color('accent');
+}
+
+:focus {
+  outline: 2px dashed get-color('light-glare');
+  outline-offset: 0.25rem;
+}
+
+ul {
+  list-style-type: square;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: get-size("400");
+  color: get-color("light-glare");
+}
+
+label, .label {
+  text-transform: uppercase;
+  font-weight: 700;
+  &--small {
+    font-size: get-size("300");
+    color: get-color("muted");
+  }
+}
+
+main:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 900;
+  @include apply-utility('leading', 'flat');
+  font-variant-numeric: lining-nums;
+}
+
+h1, h2 {
+  // font-size: get-size('600');
+  @include media-query('md') {
+    font-size: get-size('900');
+    // text-transform: uppercase;
+  }
+}
+
+h1, h2 {
+  font-size: 68px;
+  font-weight: 300;
+  span {
+    font-weight: bold;
+    color: get-color('accent');
+  }
+}
+
+h2 {
+  font-size: 54px;
+}
+
+
+
+// High contrast selection because it can help visually-impaired
+// folks read the text easier
+::selection {
+  color: get-color('dark');
+
+  // We set this as an RGBA because that’s how you get a solid color, by using 0.99
+  // alpha value. Browsers are wild.
+  background: rgba(get-color('light'), 0.99);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid get-color('light');
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: get-color('light');
+  border-radius: 0.25rem;
+}
+
+// Import blocks
+@import 'blocks/avatar';
+@import 'blocks/button';
+@import 'blocks/hamburger-menu';
+@import 'blocks/hero';
+@import 'blocks/nav-link';
+@import 'blocks/large-header';
+@import 'blocks/news-section';
+@import 'blocks/radial-gradient';
+@import 'blocks/round-button';
+@import 'blocks/section';
+@import 'blocks/site-footer';
+@import 'blocks/site-header';
+@import 'blocks/steps';
+@import 'blocks/skip-link';
+@import 'blocks/staff-section';
+@import 'blocks/testimonials-section';
+
+
+// Import utilities
+@import 'utilities/auto-grid';
+@import 'utilities/cluster-l';
+@import 'utilities/box-shadow';
+@import 'utilities/flow';
+@import 'utilities/headline';
+@import 'utilities/panel';
+@import 'utilities/radius';
+@import 'utilities/reel-l';
+@import 'utilities/site-wrap';
+@import 'utilities/switcher-l';
+@import 'utilities/visually-hidden';
+@import 'utilities/with-sidebar-l';
+@import 'utilities/wrapper';
+
+
+.main-layout {
+  display: flex;
+
+  & > .margin-area {
+    min-width: 80px;
+    position: fixed;
+    height: 100vh;
+    top:0;
+    left: 0;
+  }
+  
+  & .main-area{
+    padding-top: 3rem;
+    border-left: 1px solid white;
+    min-width: 80px;
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
+}
+
+.social-icon {
+  border: 1px solid white;
+  padding: get-size("200");
+  display: inline-block;
+}
+
+.overflowing {
+  overflow: visible!important;
+}
+
+.partnerLogo {
+  opacity: 0.5;
+}
+
+.border-top {
+  border-top: 1px solid white;
+}
+.border-bottom {
+  border-bottom: 1px solid white;
+}
+.border-right {
+  border-right: 1px solid white;
+}
+.border-left {
+  border-left: 1px solid white;
+}
+
+.border-full {
+  border: 1px solid white;
+}
+
+.avatar {
+  border-radius: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.relative {
+  position: relative;
+}
+
+.tooltip {
+  position:fixed;
+  background-color: #fff;
+  color: get-color('dark');
+  border-radius: 200px;
+  top:0;
+  left:0;
+  width: 120px;
+  height: 120px;
+  padding: 45px 0 ;
+  text-align: center;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+  overflow:hidden;
+  pointer-events: none;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    font-size: get-size('200');
+    color: #000;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+}
+
+
+.tooltipContainer {
+  cursor: pointer;
+}
+.tooltipContainer .tooltip.active {
+  
+  transform: scale(1);
+  
+}
+
+[data-aos="example-anim3"] {
+  width: 0px;
+  &.aos-animate {
+    animation: shutterreveal 1s ease-in-out;
+  }
+}
+
+.reveal-cover {
+  position: absolute;
+  top:0;
+  bottom:0;
+  background-color: get-color('primary-shade');
+  z-index: 100;
+} 
+
+@keyframes shutterreveal {
+  from {width: 0%; left:0;}
+  50%  {width: 100%;  }
+  59% {right:0;}
+  to {width: 0%; right:0;}
+}

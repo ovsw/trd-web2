@@ -1,0 +1,68 @@
+.site-head {
+  border-bottom: 1px solid white;
+  background: get-color('dark-shade');
+  display: flex;
+  
+  position: fixed;
+  top:0;
+  z-index: 900;
+
+  width: calc(100% - 80px);
+
+ 
+
+  .logo h2 {
+    font-size: get-size('700');
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  
+  & nav {
+    flex-basis: 100%;
+    display: flex;
+    display: none;
+    
+    @include media-query('md') {
+      display: flex;
+    }
+    
+    ul {
+      display: flex;
+      flex-basis: 100%;
+      
+      .cluster-l {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: get-size("400");
+      }
+    }
+    
+    ul > li {
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      @extend .nav-link;
+    }
+
+  }
+
+  &__cta {
+    margin-left: auto;
+    border-left: 1px solid white;
+    display: flex;
+    align-items: center;
+    background-color: rgb(23, 37, 37);
+
+    a {
+      padding: 0 get-size('900');
+      span {
+        color: get-color('light');
+      }
+    }
+  }
+
+}
+
+

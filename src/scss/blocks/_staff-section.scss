@@ -1,0 +1,42 @@
+.staffSection {
+  --auto-grid-gap: 32px;
+  --auto-grid-min-size: 16rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  
+
+  &__wrapper > div:first-child > div{
+    background-color: #126078;
+  }
+
+  &__wrapper > div:nth-child(2) > div{
+    background-color: #af7763;
+  }
+
+  &__wrapper > div:nth-child(3) > div{
+    background-color: #732b31;
+  }
+
+  &__wrapper > div:nth-child(4) > div{
+    background-color: #646b58;
+  }
+
+  h3 {
+    font-size: 40px;
+    font-weight: 300;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__cardText {
+    margin-top: calc(var(--s3) * (-1));
+    position: relative;
+    z-index: 10;
+    margin-right: get-size('400');
+    box-shadow: 0 0 60px rgba($color: get-color('dark'), $alpha: 0.9), 0 0 20px rgba($color: get-color('dark'), $alpha: 0.6);
+  }
+ 
+}

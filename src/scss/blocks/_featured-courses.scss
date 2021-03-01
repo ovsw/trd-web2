@@ -1,0 +1,9 @@
+.featuredCourses {
+  .wrapper {
+    overflow: visible;
+  }
+
+  &__right {
+    padding: get-size('400');
+  }
+}

@@ -1,0 +1,19 @@
+<div class='testimonialsSection [ section ]'>
+    <div class="[ wrapper flow ]">
+        <h2>Ce spun <span class="headline__accent">cursanții</span></h2>
+        <div class="grid">
+
+        {% for item in siteTestimonials %}
+                
+            <div class='gridItem card card__white [ flow ]'>
+                <img src='{% croppedUrlFor item.image, 200, 200 %}' class='avatar' alt="{{item.authorTitle}}}" />
+                <p>“{{item.text}}”
+                </p>
+                <h3>{{item.authorName}}</h3>
+                <p class='[ color-primary ] upperCaseText'>{{item.authorTitle}}</p>
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>

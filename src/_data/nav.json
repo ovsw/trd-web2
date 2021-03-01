@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Cursuri",
+    "url": "/cursuri/"
+  },{
+    "name": "Echipa",
+    "url": "/echipa-tridia/"
+  },{
+    "name": "Locatie",
+    "url": "/locatie-cursuri/"
+  },{
+    "name": "Despre",
+    "url": "/despre-noi/"
+  },{
+    "name": "Noutati",
+    "url": "/blog/"
+  },{
+    "name": "Contact",
+    "url": "/contact/"
+  }
+]

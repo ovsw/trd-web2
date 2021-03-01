@@ -1,0 +1,30 @@
+<section class="testimonialsSection">
+  <div class="box-800 gap-top-800" style="position: relative;">
+    <h2 class="">Ce spun <span>cursanții</span>:</h2>
+    <div class="radial-gradient"></div>
+  </div>
+  <div class="reel-l">
+    <!-- centered -->
+      {% for item in section.testimonials %}
+                
+            <div class='gridItem [ flow box-800 border-right border-top ]'>
+                
+                <div class="color-accent">{% include "partials/svg/quote.svg" %}</div>
+                <p class="measure-compact">{{item.text}}</p>
+                {% set authorNameArray = item.authorName.split(' ') %}
+
+                <div class="cluster-l">
+                  <div style="align-items: flex-start;">
+                    <div>
+                      <img src='{% croppedUrlFor item.image, 200, 200 %}' class='avatar' alt="{{item.authorTitle}}}" style="max-width: 110px;"/>
+                    </div>
+                    <div class="flow flow-space-300">
+                        <h3 class="testimonialsSection__author text-700 measure-micro"><strong>{{authorNameArray[0]}}</strong> <br>{{authorNameArray[1]}}{{authorNameArray[2]}}</h3>
+                        <p class='testimonialsSection__title uppercase text-400 measure-minor' style="font-weight: bold;">{{item.authorTitle}}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+  </div>
+</section>

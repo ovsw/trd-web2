@@ -1,0 +1,38 @@
+.hero {
+  --sidebar-space: 0;
+
+  &__inner {
+    flex-direction: row-reverse;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__ct {
+    position: absolute;
+    right: 150px;
+    bottom: 100px;
+    z-index: 999;
+  }
+}
+
+#heroLottie {
+  max-width: 700px;
+}
+
+.partners {
+  --sidebar-space: 0;
+  --sidebar-flex-basis: 45%;
+
+  & > * > * {
+    align-items: flex-start;
+  }
+
+}

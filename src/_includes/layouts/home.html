@@ -1,0 +1,56 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/home.css'] %}
+
+{% block content %}
+    {% include "partials/hero.html" %}
+    {% include "partials/steps.html" %}
+    {# {% include "partials/courses-old.html" %} #}
+    {# {% include "partials/staff.html" %} #}
+    {# {% include "partials/testimonials.html" %} #}
+    {# {% include "sections/cta-section.html" %} #}
+    {# {% include "partials/location.html" %} #}
+    {# {% include "partials/news.html" %} #}
+
+    {% for section in siteHome.content.sections %}
+
+      {# {% if section._type == 'featCoursesSection' %}
+        {% include "sections/featCourses-section.html" %}
+      {% endif %}
+      {% if section._type == 'ctaSection' %}
+        {% include "sections/cta-section.html" %}
+      {% endif %}#}
+      {% if section._type == 'reusedSection' %}
+        {% include "sections/reusable-section.html" %}
+      {% endif %} 
+      {% if section._type == 'testimonialsSection' %}
+        {% include "sections/testimonials-section.html" %}
+      {% endif %}
+      {# {% if section._type == 'locationMapSection' %}
+        {% include "partials/location.html" %}
+      {% endif %} #}
+
+    {% endfor %}
+{% include "partials/news.html" %}
+
+
+
+
+{% endblock %}
+
+{% block footerScripts %}
+    <script>
+    new TypeIt("#typeIt", {
+      // strings: ["Designeri de Interior", "Arhitecti", "Game Designers"],
+      speed: 100,
+      loop: true,
+      lifelike: true,
+      waitUntilVisible: true
+    })
+    .type("Designeri de Interior", {delay: 2000})
+    .delete()
+    .type("Arhitecți", {delay: 2000})
+    .delete()
+    .type("Game Designeri", {delay: 2000})
+    .go();
+  </script>
+{% endblock %}

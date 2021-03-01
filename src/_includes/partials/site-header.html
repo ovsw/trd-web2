@@ -1,0 +1,48 @@
+<a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
+
+<header role="banner" class="site-head" x-data="{ mainMenuisOpen: false }">
+    
+  
+    <div class="logo box-400">
+      {# <a href="/"><img src="/images/home/logo.png"/></a> #}
+      <h2>Tridia</h2>
+    </div>
+
+
+    <nav 
+      aria-label="Main Menu"
+      x-bind:data-open="mainMenuisOpen" 
+      :aria-expanded="mainMenuisOpen"
+      class=""
+    >
+      <ul class="">
+            <div class="cluster-l">
+            <div>
+              {% for navItem in nav %}
+                <li><a class="nav-item" href="{{ navItem.url }}"><span>{{ navItem.name }}</span></a></li>
+              {% endfor %}
+            </div>
+          </div>
+      </ul>
+      <div class="site-head__cta">
+        <a class="box-400" href="#"><span>Inscriere</span></a>
+      </div>
+    </nav>
+
+    {# MOBILE MENU TOGGLE #}
+      <div class="hamburger-menu__container">
+          <button 
+            aria-controls="nav-list" 
+            aria-label="Main Menu toggle" 
+            :aria-expanded="mainMenuisOpen" 
+            class="hamburger-menu"  
+            @click.prevent="mainMenuisOpen = !mainMenuisOpen" 
+            x-bind:data-open="mainMenuisOpen" 
+            >
+              <div></div>
+          </button>
+      </div>
+    {# END MOBILE MENU TOGGLE #}
+  
+  
+</header>

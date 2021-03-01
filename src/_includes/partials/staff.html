@@ -1,0 +1,19 @@
+<div class="cardRowSection [ section section--dark section--skew-top-dark section--skew-bottom-dark ]">
+    <div class="[ wrapper flow ]">
+        <h2 class="color-light"><span class="headline__accent">Profesori</span> experti si pasionati</h2>
+        <p class="color-light ">scopul nostru: transmiterea pasiunii noastre pentru grafica 3D profesionistilor care pot beneficia de designul 3D in propria lor cariera </p>
+        {# <script>console.log('sdadsa', {{siteStaffPage.content.staffList | dump | safe}})</script> #}
+        
+        <div class="cardRowSection__wrapper [ auto-grid ]">
+        {% for item in siteStaffPage.content.staffList %}
+            <div class='gridItem card card__white [ flow ]'>
+                <img src='{% croppedUrlFor item.content.image, 400, 400 %}'  class='avatar' alt="{{item.content.name}}" />
+                <h3>{{item.content.name}}</h3>
+                <p class='cardRowSection__title [ color-primary ]'>{{item.content.role}}</p>
+                <p>{{item.content.shortBio}}</p>
+            </div>
+        {% endfor %}
+        </div>
+        <a class="[ button button--accentDark ]" href="#"><span>Detalii despre profesori</span></a>
+    </div>
+</div>

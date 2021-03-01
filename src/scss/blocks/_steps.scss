@@ -1,0 +1,100 @@
+.steps {
+  margin-top: -100px;
+
+  &__item {
+    padding: get-size('400') 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media-query('md') {
+      padding: 0 0 get-size('600') 0;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item-image {
+    flex: 1 0 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    padding: get-size('600') 0;
+
+    @include media-query('md') {
+      order: -1;
+      padding: 0 get-size('400') get-size('400') 0;
+    }
+  }
+
+  &__item-text {
+    @include media-query('md') {
+      margin-bottom: get-size('800');
+      padding-right: get-size('800');
+    }
+  }
+
+  .bar {
+    @include media-query('md') {
+      margin-right: get-size('800');
+    }
+  }
+
+  .circle {
+    border-radius: 16px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid get-color('accent');
+    margin-bottom: 1rem;
+  }
+  
+  .line {
+    width: 2px;
+    height: 100%;
+    // background-color: #fff;
+    margin-left: 5px;
+    // border: 1px solid white;
+    background: rgb(28, 51, 50) url('/images/white-line.jpg') repeat-x 75% -10%;
+    background-size: 50vh 50vh;
+    background-attachment: fixed;
+  }
+
+  .step-number {
+    padding: 0 get-size('400');
+
+    @include media-query('md') {
+      margin-right: get-size('600');
+    }
+
+    svg {
+      
+      height: 40px;
+      @include media-query('md') {
+        height: 78px;
+      }
+    }
+    
+  }
+
+
+
+   h3 {
+     font-size: get-size('800');
+     font-weight: 300;
+
+     strong {
+       font-weight: 700;
+       color: get-color('accent');
+     }
+   }
+
+
+
+}

@@ -1,0 +1,23 @@
+{% set course = section.course.content %}
+
+<section class="singleCourse gap-top-600 gap-bottom-600">
+  <div class="wrapper ">
+    <div class="card card__primary flow box-800 color-light">
+      <h2>{{course.title}}</h2>
+      <h3 class="upperCaseText text-400" style="font-weight: normal;">{{course.tagline}}</h3>
+
+      {{course.description | blocksToMarkdown | markdownify | safe}}
+
+      <div class="cluster-l">
+        <div>
+          <span>
+            <span class="upperCaseText text-400">Începând de la</span>
+            <div class="text-600">{{course.price}} RON / modul</div>
+          </span>
+          <a class="button button--accentDark" href="/cursuri/{{course.slug.current}}"><span>Detalii Curs</span></a>
+          <a class="button button--accentDark" href="/inscriere/"><span>Înscriere Curs</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

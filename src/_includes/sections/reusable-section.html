@@ -1,0 +1,14 @@
+{% for section in section.reusableSection.sections %}
+
+  {% if section._type == 'featCoursesSection' %}
+    {% include "partials/courses.html" %}
+  {% endif %}
+  {% if section._type == 'staffSection' %}
+    {% include "sections/staff-section.html" %}
+  {% endif %}
+  {% if section._type == 'ctaSection' %}
+    {% include "sections/cta-section.html" %}
+  {% endif %}
+  
+
+{% endfor %}

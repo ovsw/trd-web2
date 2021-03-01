@@ -1,0 +1,24 @@
+
+{% if darkSection %}
+<div class="cardRowSection [ section section--dark section--skew-top-dark section--skew-bottom-dark ]">
+{% else %}
+<div class="cardRowSection [ section ]">
+{% endif %}
+
+    <div class="[ wrapper flow ]">
+        <div class="color-light flow">
+        {% block sectionTitle %}
+        {% endblock %}
+        </div>
+
+        <div class="cardRowSection__wrapper [ auto-grid ]">
+        {% block sectionCards %}
+          <h1>missing section cards</h1>
+        {% endblock %}
+        </div>
+        
+        {% block sectionButtons %}
+          
+        {% endblock %}
+    </div>
+</div>

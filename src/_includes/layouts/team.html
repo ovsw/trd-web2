@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+{# <script>console.log({{sitePage.content | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+  {{pageHeader(title)}}
+{% endblock %} #}
+
+{% block content %}
+  
+  <section>
+    <div class="wrapper flow gap-top-900">
+    &nbsp;
+        <div class="[ auto-grid gap-top-700 ]">
+        {% for item in siteStaffPage.content.staffList %}
+            <div class='gridItem card card__white [ flow ]'>
+                <img src='{% croppedUrlFor item.content.image, 400, 400 %}'  class='avatar' alt="{{item.content.name}}" />
+                <h3>{{item.content.name}}</h3>
+                <p class='[ color-primary ]'>{{item.content.role}}</p>
+                <p>{{item.content.shortBio}}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  {{contentSections(sitePage.content.sections.sections)}}
+  
+  
+{% endblock %}
+

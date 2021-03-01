@@ -1,0 +1,39 @@
+{
+  "name": "trd-web2",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --serve\"",
+    "production": "NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy",
+    "production-win": "SET NODE_ENV=production & npx gulp && SET NODE_ENV=production & npx eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@sanity/block-content-to-html": "^1.3.8",
+    "@sanity/block-content-to-markdown": "0.0.5",
+    "@sanity/client": "^2.0.1",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "get-google-fonts": "^1.2.2",
+    "gorko": "^0.2.3",
+    "groq": "^2.0.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "markdown-it": "^11.0.1",
+    "markdown-it-anchor": "^6.0.0",
+    "moment": "^2.29.1",
+    "sass": "^1.29.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-html": "^6.1.0",
+    "prettier": "2.1.2"
+  }
+}

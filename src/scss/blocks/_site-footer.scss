@@ -1,0 +1,29 @@
+.footer {
+  
+  --switcher-margin: 0;
+
+  & > * > * {
+    border-top: 1px solid white;
+  }
+  
+  & > * > * + * {
+    border-left: 1px solid white;
+  }
+
+  form {
+    -sidebar-space: 3rem;
+  }
+
+  .bottom-split {
+    display: flex;
+    flex-direction: column;
+    
+    & > *:last-child {
+      margin-top: auto!important;
+    }
+  }
+
+  a {
+    @extend .nav-link;
+  }
+}

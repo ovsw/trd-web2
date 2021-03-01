@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-268 247 231 300" style="enable-background:new -268 247 221 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+</style>
+
+<defs>
+	<filter id="f1" x="0" y="0" width="300%" height="300%" >
+		<feOffset result="offOut" in="SourceGraphic" dx="30" dy="30" />
+		<feColorMatrix result="matrixOut" in="offOut" type="matrix"
+		values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.5 0" />
+		<feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="15" />
+		<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+	</filter>
+</defs>
+
+<g  filter="url(#f1)">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-113.728" y1="507.5377" x2="-256.6375" y2="424.2494" gradientTransform="matrix(1 0 0 -1 0 796)">
+		<stop  offset="0" style="stop-color:#00949A"/>
+		<stop  offset="1" style="stop-color:#005B61"/>
+	</linearGradient>
+	<circle class="st0" cx="-185" cy="330" r="83"/>
+	
+		<radialGradient id="SVGID_2_" cx="-436.4726" cy="795.3653" r="1" gradientTransform="matrix(9.822097e-015 160.407 160.407 -9.822097e-015 -127767.1563 70260.2656)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#C2F2F2"/>
+		<stop  offset="0.2155" style="stop-color:#66D4D4"/>
+		<stop  offset="0.5035" style="stop-color:#2FC3C1;stop-opacity:0.6283"/>
+		<stop  offset="1" style="stop-color:#02B3B1;stop-opacity:1.000000e-002"/>
+	</radialGradient>
+	<circle class="st1" cx="-185" cy="330" r="83"/>
+</g>
+</svg>

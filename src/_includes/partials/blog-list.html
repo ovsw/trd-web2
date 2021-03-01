@@ -1,0 +1,23 @@
+<div class='blogList [ section ]'>
+    <div class="[ wrapper flow ]">
+
+        <div class="auto-grid">
+            {% for post in sitePosts %}
+            <div class='gridItem card card__white [ flow ]'>
+                <img 
+                    class='fullsize'
+                    src="{% croppedUrlFor post.content.mainImage, '500', '400' %}" 
+                    srcset="{% croppedUrlFor post.content.mainImage, '600', '400' %} 500w,
+                    {% croppedUrlFor post.content.mainImage, '900', '600' %}  960w"
+                    sizes="(min-width: 40em) 50vw, 100vw"
+                    alt="{{ alt }}"
+                />
+                <h3>{{post.content.title}}</h3>
+                <p class='[ color-primary ] upperCaseText'>{{post.content.date | dateFilter}}</p>
+
+                <p>{{post.content.excerpt}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

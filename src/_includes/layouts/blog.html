@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+{# <script>console.log({{sitePage.content | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+  {{pageHeader(title)}}
+{% endblock %} #}
+
+{% block content %}
+  
+  <section>
+    <div class="wrapper flow gap-top-400">
+      {% include "partials/blog-list.html" %}
+    </div>
+  </section>
+
+  {{contentSections(sitePage.content.sections.sections)}}
+  
+  
+{% endblock %}
+

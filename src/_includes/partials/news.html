@@ -1,0 +1,43 @@
+<div class='newsSection [ section ]'>
+    <div class="">
+      <div class="wrapper">
+        <div class="box-600 relative">
+          <h2 class="headline ">De pe <br /> <span>Blogul</span> Tridia:</h2>
+          <div class="radial-gradient"></div>
+        </div>
+      </div>
+    </div>
+    <div class="[ wrapper ]">
+        <div class="newsSection__grid flow box-600 gap-bottom-800">
+            {% for post in sitePosts %}
+            <a href="" class='newsSection__item  border-left border-bottom border-right border-top'>
+                <img 
+                    class='fullsize'
+                    src="{% croppedUrlFor post.content.mainImage, '300', '200' %}" 
+                    alt="{{ alt }}"
+                />
+                {# <img 
+                    class='fullsize'
+                    src="{% croppedUrlFor post.content.mainImage, '500', '400' %}" 
+                    srcset="{% croppedUrlFor post.content.mainImage, '600', '400' %} 500w,
+                    {% croppedUrlFor post.content.mainImage, '900', '600' %}  960w"
+                    sizes="(min-width: 40em) 50vw, 100vw"
+                    alt="{{ alt }}"
+                /> #}
+                <div class="flow flow-space-200 box-600">
+                  <p class='uppercase text-300'>{{post.content.date | dateFilter}}</p>
+                  <h3 class="text-800">{{post.content.title}}</h3>
+                </div>
+
+                  <p class="text-400 box-600 measure-compact">
+                    {{post.content.excerpt}}
+                    <br /><br />
+                    <span class=""  href="#"><span>Citeste</span>&nbsp;&nbsp; {% include "partials/svg/arrow-diag-light.svg" %} </span>
+                  </p>
+            </a>
+            {% endfor %}
+
+        </div>
+            {# <a class="[ button button--light ] [ pull-right ]" href="/blog/"><span>Vezi toate</span></a> #}
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.newsSection {
+  padding-top: get-size('800');
+  
+  
+  
+  &__grid {
+   display: flex;
+   flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+    color: get-color('light');
+
+    &:hover {
+      color: get-color('dark');
+      background-color: get-color('light');
+    }
+
+    & > div:nth-child(2) {
+      flex: 1;
+      
+      img {
+        object-fit: cover;
+      }
+    }
+
+    & > div:nth-child(2){
+      flex: 1;
+    }
+
+    h3 {
+      font-weight: 300;
+    }
+  }
+
+}

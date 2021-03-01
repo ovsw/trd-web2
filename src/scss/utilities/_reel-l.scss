@@ -1,0 +1,34 @@
+.reel-l {
+  display: flex;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-color: #000 #fff;
+  align-items: stretch;
+}
+
+.reel-l::-webkit-scrollbar {
+  height: 1rem;
+}
+
+
+
+.reel-l > * {
+  flex: 0 0 auto;
+}
+
+
+.reel-l > * {
+ 
+  flex-basis: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.reel-l > * + * {
+  margin-left: 0;
+}
+
+.reel-l.overflowing {
+  padding-bottom: 0;
+}

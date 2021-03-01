@@ -1,0 +1,19 @@
+<div class='[ ]' data-aos-once="true" data-aos="fade-up" data-aos-delay="{{loop.index * 500}}" data-aos-duration="1000">
+    <div class="tooltipContainer relative" x-data="{ tooltipActive: false }" @mouseenter="tooltipActive = true" @mouseout="tooltipActive = false">
+      <span class="tooltip" x-bind:class="{ 'active': tooltipActive }"><a href="#">Citeste Povestea</a></span>
+      <img src='{% croppedUrlFor card.content.image, 400, 500 %}'  class='' alt="{{card.content.name}}" />
+    </div>
+
+    <div class="staffSection__cardText box-500 flow bg-primary-shade ">
+      {% set staffMemberNameArr = card.content.name.split(' ') %}
+      <h3><span>{{staffMemberNameArr[0]}}</span> {{staffMemberNameArr[1]}}</h3>
+      <p class="uppercase">{{card.content.role}}</p>
+      {# <p class="measure-compact">{{card.content.shortBio}}</p> #}
+      
+      <div>
+        <a class="[ nav-link nav-link--underlined gap-top-800 ]"  href="#"><span>Citeste despre {{staffMemberNameArr[0]}}</span> {% include "partials/svg/arrow-diag-light.svg" %} </a>
+      </div>
+      
+    </div>
+
+</div>
