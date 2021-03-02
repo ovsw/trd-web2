@@ -11,10 +11,23 @@
 
  
 
-  .logo h2 {
-    font-size: get-size('700');
-    font-weight: 500;
-    letter-spacing: 0.005em;
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-left: get-size('800');
+
+    h2 {
+      font-size: get-size('700');
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      margin-left: get-size('200');  
+    }
+    #logoAnimation {
+      width: 100px;
+      margin: -20px;
+      margin-bottom: -25px;
+    }
+      
   }
   
   & nav {
@@ -29,17 +42,15 @@
     ul {
       display: flex;
       flex-basis: 100%;
+      padding-top: get-size('400');
       
-      .cluster-l {
-        display: flex;
-        align-items: flex-end;
-        padding-bottom: get-size("400");
-      }
+     
     }
     
     ul > li {
       display: flex;
       align-items: center;
+      margin-left: get-size('400');
     }
 
     a {

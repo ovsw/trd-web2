@@ -14,6 +14,7 @@ const encodeUri = require('./src/filters/encode-uri.js');
 module.exports = config => {
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy('./src/images/');
+  config.addPassthroughCopy('./src/lottie/');
   config.addPassthroughCopy("./src/js/");
   config.addPassthroughCopy("./src/fonts/");
   

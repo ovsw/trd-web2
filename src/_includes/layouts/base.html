@@ -54,7 +54,7 @@
       <div class="main-layout">
 
         <div class="margin-area">
-          t
+          
         </div>
       
         <div class="main-area">
@@ -130,6 +130,41 @@
 
 
       }); #}
+
+      var logoAnimation = bodymovin.loadAnimation({
+        // animationData: { /* ... */ },
+        container: document.getElementById('logoAnimation'), // required
+        path: '/lottie/tridia-cube-cyan.json', // required
+        renderer: 'svg', // required
+        loop: true, // optional
+        autoplay: false, // optional
+        name: "Demo Animation", // optional
+      });
+
+      var windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      };
+
+
+      logoAnimation.addEventListener("DOMLoaded", function() {
+        // calculateScale();
+
+        window.addEventListener("scroll", function(ev) {
+  
+          var top = this.scrollY;
+          //console.log('top:', top)
+
+          var scaleCalc = scale(top, 0, windowSize.h, 1, 24 );
+
+          var frameNumber = (scaleCalc <25) ? scaleCalc : scaleCalc % 24;
+          logoAnimation.goToAndStop(frameNumber, true);
+
+          
+        }, false);
+
+
+      });
 
 
       function scale(num, in_min, in_max, out_min, out_max) {

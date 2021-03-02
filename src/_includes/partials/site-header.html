@@ -5,6 +5,7 @@
   
     <div class="logo box-400">
       {# <a href="/"><img src="/images/home/logo.png"/></a> #}
+      <div id="logoAnimation"></div>
       <h2>Tridia</h2>
     </div>
 
@@ -16,13 +17,9 @@
       class=""
     >
       <ul class="">
-            <div class="cluster-l">
-            <div>
               {% for navItem in nav %}
                 <li><a class="nav-item" href="{{ navItem.url }}"><span>{{ navItem.name }}</span></a></li>
               {% endfor %}
-            </div>
-          </div>
       </ul>
       <div class="site-head__cta">
         <a class="box-400" href="#"><span>Inscriere</span></a>
