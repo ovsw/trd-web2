@@ -23,8 +23,8 @@
           </div>
 
           <p class="step-number">{% include "partials/svg/" + loop.index + ".svg" %}</p>
-          <div class="steps__item-text flow" style="margin-bottom: 200px;">
-            <h3 data-aos-once="false" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="{{
+          <div class="steps__item-text flow">
+            <h3 class="h2" data-aos-once="false" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="{{
               (loop.index-1) * 500}}" >{{step.heading | safe}}</h3>
 
             <div class="flow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{

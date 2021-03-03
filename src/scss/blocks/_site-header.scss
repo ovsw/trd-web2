@@ -2,19 +2,26 @@
   border-bottom: 1px solid white;
   background: get-color('dark-shade');
   display: flex;
+
+  padding: 0 get-size('400');
   
   position: fixed;
   top:0;
   z-index: 900;
 
-  width: calc(100% - 80px);
+  width: 100%;
 
- 
-
+  @include media-query('lg') {
+    width: calc(100% - 80px);
+  }
+  
   .logo {
     display: flex;
     align-items: center;
-    margin-left: get-size('800');
+
+    @include media-query('md') {
+      margin-left: get-size('800');
+    }
 
     h2 {
       font-size: get-size('700');
@@ -35,7 +42,7 @@
     display: flex;
     display: none;
     
-    @include media-query('md') {
+    @include media-query('lg') {
       display: flex;
     }
     

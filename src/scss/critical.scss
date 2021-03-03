@@ -36,7 +36,12 @@ body {
   font-size: get-size('400');
 
   @include apply-utility('font', 'base');
-  padding-left: 80px;
+
+
+  @include media-query('lg') {
+    padding-left: 80px;
+  }
+
 
 }
 
@@ -78,30 +83,39 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 900;
   @include apply-utility('leading', 'flat');
-  font-variant-numeric: lining-nums;
-}
-
-h1, h2 {
-  // font-size: get-size('600');
-  @include media-query('md') {
-    font-size: get-size('900');
-    // text-transform: uppercase;
-  }
-}
-
-h1, h2 {
-  font-size: 68px;
   font-weight: 300;
-  span {
-    font-weight: bold;
+
+  strong, span {
+    font-weight: 700;
     color: get-color('accent');
   }
 }
 
+
+h1, h2, .h1, .h2 {
+  font-size: get-size('700');
+  font-weight: 300;
+
+  @include media-query('md') {
+    font-size: get-size('900');
+  }
+}
+
 h2 {
-  font-size: 54px;
+  font-size: get-size('700');
+
+  @include media-query('md') {
+    font-size: 54px;
+  }
+}
+
+h3{
+  font-size: 32px;
+  
+  @include media-query('md') {
+    font-size: 40px;
+  }
 }
 
 
@@ -168,7 +182,7 @@ h2 {
 
 
 .main-layout {
-  display: flex;
+
 
   & > .margin-area {
     min-width: 80px;
@@ -176,12 +190,16 @@ h2 {
     height: 100vh;
     top:0;
     left: 0;
+    display: none;
+
+    @include media-query('md') {
+      display: block;
+    }
   }
   
   & .main-area{
     padding-top: 3rem;
     border-left: 1px solid white;
-    min-width: 80px;
     flex-grow: 1;
     flex-basis: 100%;
   }

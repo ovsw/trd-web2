@@ -13,6 +13,12 @@
 
   &__text {
     position: relative;
+
+    margin-top: -130px!important;
+    
+    @include media-query('md') {
+      margin-top:0;
+    }
   }
 
   &__ct {
@@ -20,6 +26,12 @@
     right: 150px;
     bottom: 100px;
     z-index: 800;
+
+    display: none;
+    
+    @include media-query('lg') {
+      display: block;
+    }
   }
 }
 

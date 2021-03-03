@@ -31,6 +31,13 @@
     }
   }
 
+  &__cardImage{
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
   &__cardText {
     margin-top: calc(var(--s3) * (-1));
     position: relative;
