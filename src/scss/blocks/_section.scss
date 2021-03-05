@@ -1,4 +1,7 @@
 .section {
-  
-  
+  margin: get-size('900') 0;
+
+  @include media-query('md') {
+    margin: get-size('2xl') 0;
+  }
 }

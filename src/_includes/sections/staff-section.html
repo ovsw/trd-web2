@@ -1,23 +1,24 @@
-<div class="staffSection wrapper">
+<div class="staffSection section">
+    <div class="wrapper">
+      <div class="[  flow flow-space-900 ]">
+          <div class="flow relative flow-space-400" >
+            <h2><span class="headline__accent">{{section.title1}}</span> {{section.title2}}</h2>
+            <div class="radial-gradient"></div>
+            {# {% if section.text %}
+              {{section.text | blocksToMarkdown | markdownify | safe}}
+            {% endif %} #}
+            {# <script>console.log('sdadsa', {{siteStaffPage.content.staffList | dump | safe}})</script> #}
+          </div>
 
-    <div class="[  flow flow-space-900 ]">
-        <div class="flow relative flow-space-400" >
-          <h2><span class="headline__accent">{{section.title1}}</span> {{section.title2}}</h2>
-          <div class="radial-gradient"></div>
-          {# {% if section.text %}
-            {{section.text | blocksToMarkdown | markdownify | safe}}
-          {% endif %} #}
-          {# <script>console.log('sdadsa', {{siteStaffPage.content.staffList | dump | safe}})</script> #}
-        </div>
-
-        <div class="staffSection__wrapper [ auto-grid ]">
-            {% for card in section.staffList %}
-              {% include "partials/staff-card.html" %}
-            {% endfor %}
-        </div>
-        
-        {% for button in section.buttons %}
-          <a class="[ nav-link nav-link--underlined gap-top-800 ]"  href="{{button.url}}"><span>{{button.text}} {% include "partials/svg/arrow-diag-light.svg" %} </a>
-        {% endfor %}
+          <div class="staffSection__wrapper [ auto-grid ]">
+              {% for card in section.staffList %}
+                {% include "partials/staff-card.html" %}
+              {% endfor %}
+          </div>
+          
+          {% for button in section.buttons %}
+            <a class="[ nav-link nav-link--underlined gap-top-800 ]"  href="{{button.url}}"><span>{{button.text}} {% include "partials/svg/arrow-diag-light.svg" %} </a>
+          {% endfor %}
+      </div>
     </div>
 </div>
