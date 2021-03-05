@@ -47,3 +47,12 @@
   }
  
 }
+
+.staff-card {
+  max-width: 20rem;
+  margin: 0 auto;
+
+  @include media-query('md') {
+    min-width: none;
+  }
+}
