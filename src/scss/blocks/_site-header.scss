@@ -27,6 +27,11 @@
       margin-left: get-size('800');
     }
 
+    a {
+      display: flex; align-items: center; 
+      text-decoration: none;
+    }
+
     h2 {
       font-size: get-size('700');
       font-weight: 500;
