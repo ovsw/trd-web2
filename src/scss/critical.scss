@@ -31,9 +31,9 @@
 
 body {
   background: get-color('dark-shade');
-  color: get-color('light');
+  color: get-color('light-shade');
   line-height: 1.635;
-  font-size: get-size('400');
+  font-size: get-size('500');
 
   @include apply-utility('font', 'base');
 
@@ -75,6 +75,11 @@ label, .label {
   }
 }
 
+p strong {
+  color: get-color('light-glare');
+  font-weight: 500;
+}
+
 main:focus {
   outline: none;
 }
@@ -85,8 +90,9 @@ h3,
 h4 {
   @include apply-utility('leading', 'flat');
   font-weight: 300;
+  color: get-color('light');
 
-  strong, span {
+  strong {
     font-weight: 700;
     color: get-color('accent');
   }
@@ -100,6 +106,7 @@ h1, h2, .h1, .h2 {
   @include media-query('md') {
     font-size: get-size('900');
   }
+
 }
 
 h2 {
@@ -118,7 +125,12 @@ h3{
   }
 }
 
-
+.negative h1, .negative h2, .negative h3{
+  color: get-color('dark');
+}
+.negative, .negative .faqs > * {
+  border-color: get-color('dark')!important;
+}
 
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
@@ -167,6 +179,7 @@ h3{
 
 // Import utilities
 @import 'utilities/auto-grid';
+@import 'utilities/center-l';
 @import 'utilities/cluster-l';
 @import 'utilities/box-shadow';
 @import 'utilities/flow';
@@ -305,3 +318,9 @@ h3{
   59% {right:0;}
   to {width: 0%; right:0;}
 }
+
+.negative {
+  color: get-color('dark');
+  background-color: get-color('light');
+}
+

@@ -1,23 +1,44 @@
 {% set course = section.course.content %}
 
-<section class="singleCourse gap-top-600 gap-bottom-600">
-  <div class="wrapper ">
-    <div class="card card__primary flow box-800 color-light">
-      <h2>{{course.title}}</h2>
-      <h3 class="upperCaseText text-400" style="font-weight: normal;">{{course.tagline}}</h3>
+<section class="singleCourse gap-top-600 gap-bottom-600 ">
+  <div class="wrapper">
+    <div class="border-full  flow with-sidebar-left-l box-800" style="--sidebar-space: 4rem">
+      <div >
 
-      {{course.description | blocksToMarkdown | markdownify | safe}}
+        <div class="center-l center-l--top">
+          <img 
+          class=""
+          src="{% imageUrlFor course.mainImage, '300' %}" 
+          alt="{{ alt }}"
+          />
+       </div>
+      
+        <div class="flow ">
+          <h2>Curs <strong> <br/>{{course.title}}</strong></h2>
+          <h3 class="upperCaseText text-400" style="font-weight: normal;">{{course.tagline}}</h3>
 
-      <div class="cluster-l">
-        <div>
-          <span>
-            <span class="upperCaseText text-400">Începând de la</span>
-            <div class="text-600">{{course.price}} RON / modul</div>
-          </span>
-          <a class="button button--accentDark" href="/cursuri/{{course.slug.current}}"><span>Detalii Curs</span></a>
-          <a class="button button--accentDark" href="/inscriere/"><span>Înscriere Curs</span></a>
+
+          {{course.description | blocksToMarkdown | markdownify | safe}}
+
+          <div class="cluster-l">
+            <div>
+              <span>
+                <span class="upperCaseText text-400">Începând de la</span>
+                <div class="text-600"><span class="color-accent">{{course.price}}</span> RON / modul</div>
+              </span>
+              <div class="cluster-l">
+                <div>
+                  <a class="button button--accentDark" href="/cursuri/{{course.slug.current}}"><span>Vezi module</span></a>
+                  <a class="button button--outline" href="/inscriere/"><span>Sesiuni / Înscriere</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
+
       </div>
     </div>
+
   </div>
 </section>

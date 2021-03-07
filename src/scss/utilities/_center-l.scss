@@ -1,0 +1,13 @@
+.center-l {
+  display: flex; 
+  align-items: center;
+
+  & > * {
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  &--top {
+    align-items: flex-start;
+  }
+}

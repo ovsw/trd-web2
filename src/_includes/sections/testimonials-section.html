@@ -10,7 +10,7 @@
             <div class='gridItem [ flow box-800 border-right border-top ]'>
                 
                 <div class="color-accent">{% include "partials/svg/quote.svg" %}</div>
-                <p class="measure-compact">{{item.text}}</p>
+                <p class="measure-30">{{item.text}}</p>
                 {% set authorNameArray = item.authorName.split(' ') %}
 
                 <div class="cluster-l">
@@ -19,8 +19,8 @@
                       <img src='{% croppedUrlFor item.image, 200, 200 %}' class='avatar' alt="{{item.authorTitle}}}" style="max-width: 110px;"/>
                     </div>
                     <div class="flow flow-space-300">
-                        <h3 class="testimonialsSection__author text-700 measure-micro"><strong>{{authorNameArray[0]}}</strong> <br>{{authorNameArray[1]}}{{authorNameArray[2]}}</h3>
-                        <p class='testimonialsSection__title uppercase text-400 measure-minor' style="font-weight: bold;">{{item.authorTitle}}</p>
+                        <h3 class="testimonialsSection__author text-700 measure-10"><strong>{{authorNameArray[0]}}</strong> <br>{{authorNameArray[1]}}{{authorNameArray[2]}}</h3>
+                        <p class='testimonialsSection__title uppercase text-400 measure-20' style="font-weight: bold;">{{item.authorTitle}}</p>
                     </div>
                   </div>
                 </div>

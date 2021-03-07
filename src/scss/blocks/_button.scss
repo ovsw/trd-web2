@@ -1,10 +1,11 @@
 .button {
-  padding: get-size("500") get-size("700");
+  padding: get-size("400") get-size("500");
   background-color: get-color("accent");
   color: get-color("light-glare");
+  font-size: get-size('400');
   
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
 
   display: inline-block;
@@ -19,6 +20,10 @@
     position: relative;
     z-index: 2;
     transition: all .35s ease-Out;
+  }
+
+  @include media-query('lg') {
+    padding: get-size("500") get-size("700");
   }
 
   &:before{
@@ -46,11 +51,24 @@
     background-color: transparent;
     color: get-color("light");
 
+    &-dark {
+      border: 1px solid get-color("dark");
+      background-color: transparent;
+      color: get-color("dark")!important;
+    }
   }
 
   &--white {
     background-color: get-color("light");
     color: get-color("dark");
+  }
+
+  &--dark {
+    background-color: get-color("dark")!important;
+    color: get-color("light-glare");
+    &:hover {
+      color: get-color('dark')!important;
+    }
   }
 
 }

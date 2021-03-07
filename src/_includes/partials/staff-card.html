@@ -8,7 +8,7 @@
       {% set staffMemberNameArr = card.content.name.split(' ') %}
       <h3><span>{{staffMemberNameArr[0]}}</span> {{staffMemberNameArr[1]}}</h3>
       <p class="uppercase text-300">{{card.content.role}}</p>
-      {# <p class="measure-compact">{{card.content.shortBio}}</p> #}
+      {# <p class="measure-30">{{card.content.shortBio}}</p> #}
       
       <div>
         <a class="[ nav-link nav-link--underlined gap-top:600 md:gap-top-800 ]"  href="#"><span>Citeste despre {{staffMemberNameArr[0]}}</span> {% include "partials/svg/arrow-diag-light.svg" %} </a>

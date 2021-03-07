@@ -12,39 +12,121 @@
 
 {% block content %}
 
-  <section class="section">
-    <div class="wrapper flow">
-      <h2>Descriere curs</h2>
+<section class="section section--padded">
+  <div class="page-content-column border-right border-left">
+    
 
-      {{ siteCourse.content.body | blocksToMarkdown | markdownify | safe}}
-    </div>
-  </section>
-  
-  <section class="modules">
-    <div class="wrapper flow">
-      <h2>Module Curs {{siteCourse.content.title}}</h2>
+      <div class="pageHeader">
+        <div class="pageHeader__text md:box-800 lg:box-900 md:bg-dark gap-top-800 lg:gap-bottom-xl">
+          <div class="radial-gradient"></div>
 
-      {% for module in siteCourse.content.modules %}
-        {% set module = module.content %}
-        <div class="flow">
-          <h3>{{module.title}}</h3>
-          <p>{{module.audience}}</p>
-          <p>Durată: {{module.duration}}</p>
-          <p>Mărime Grupă: {{module.classSize}}</p>
-          <p>Pret: {{module.price}} RON</p>
-          {# {{module.Curriculum | blocksToMarkdown | markdownify | safe }} #}
-          <div class="cluster-l">
+          <h1 class="text-800 measure-10"><div class="text-400 uppercase gap-bottom-400">Curs Tridia:  design 3D pentru</div> <strong>{{siteCourse.content.title}}</strong></h1>
+        </div>
+        <div class="pageHeader__icon center-l">
+          <img 
+              class=" lg:gap-top-800"
+              src="{% imageUrlFor siteCourse.content.mainImage, '400' %}" 
+              alt="{{ alt }}"
+              />
+          </div>
+      </div>
+      
+
+      <div class="page-content-column__wrapper flow gap-botom-900 relative">
+          {# <div class="radial-gradient"></div> #}
+
+        <h2>Descriere curs</h2>
+
+        {{ siteCourse.content.body | blocksToMarkdown | markdownify | safe}}
+
+        <h2>Module Curs {{siteCourse.content.title}}</h2>
+
+        <p>Cursul este impărțit în 3 module, care corespund nivelurilor de complexitate si dificultate al proiectelor realizate.</p>
+      </div>
+
+      <div class="page-content-column__wrapper gap-bottom-600">
+          
+      </div>
+
+        {% for module in siteCourse.content.modules %}
+          {% set module = module.content %}
+        <div class="box-400">
+
+          <div class="module flow border-full box-800 negative">
+            {% if module.title == "De Bază"  %}
+              <h3>{{loop.index}}. Modul <strong>De Bază</strong></h3>
+              
+            {% else %}
+              {% set moduleLevel = module.title.split(" ") %}
+              <h3>{{loop.index}}. Modul <strong>{{moduleLevel[0]}}</strong> <span class="text-500">{{siteCourse.content.title}}</span></h3>
+            {% endif %}
+
+            <p class="text-350 color-dark"><span class="color-accent text-500">{{module.price}}</span> &nbsp;&nbsp; RON</p>
+
+            <p class="text-500">{{module.audience}}</p>
+
+
+            
+            
+            {# border-full bg-primary color-light-glare box-400 #}
+              
             <div>
-              <a class="button button--light" href="{{module.slug.current}}"><span>Detalii modul</span></a>
-              <a class="button button--light" href="#"><span>Vezi Sesiuni</span></a>
-              <a class="button button--accentLight" href="#"><span>Înscriere</span></a>
+                <div class="module__stats border-top cluster-l gap-top-600">
+                <div>
+                  <p class="box-400 border-right">Durată: {{module.duration}}</p>
+                <p class="box-400 ">Mărime Grupă {{module.classSize}}</p>
+                </div>
+              </div>
+
+              <div class="faqs  border-top border-bottom" x-data="{ openedIndex: -1 }">
+
+                <div>
+                  <h4 @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1" class="color-dark">
+                    Echipament necesar
+                    {% include "partials/svg/icon-caret-down.svg" %}
+                  </h4>
+                  <div  x-show.transition.in.duration.800ms="openedIndex == 1">
+                    {{module.equipment | blocksToMarkdown | markdownify | safe}}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2" class="color-dark">Cunostințe necesare {% include "partials/svg/icon-caret-down.svg" %}</h4>
+                  <div  x-show.transition.in.duration.800ms="openedIndex == 2">
+                    {{module.experienceReq | blocksToMarkdown | markdownify | safe}}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3" class="color-dark">Programă {% include "partials/svg/icon-caret-down.svg" %}</h4>
+                  <div  x-show.transition.in.duration.800ms="openedIndex == 3">
+                    {{module.Curriculum | blocksToMarkdown | markdownify | safe}}
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+              
+           
+
+            
+
+            <div class="cluster-l">
+              <div>
+                {# <a class="button button--dark" href="{{module.slug.current}}"><span>Detalii modul</span></a> #}
+                <a class="button button--outline-dark" href="#"><span>Vezi Sesiuni</span></a>
+                <a class="button button--accentLight" href="#"><span>Înscriere</span></a>
+              </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
-    </div>
 
-  </section>
-  
+      </div>
+        {% endfor %}
+
+        
+      
+
+  </div>
+</section>
   
 {% endblock %}

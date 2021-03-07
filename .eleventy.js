@@ -65,7 +65,7 @@ module.exports = config => {
   config.addShortcode('imageUrlFor', (image, width = "400") => {
     return urlFor(image)
         .width(width)
-        .auto('format')
+        .quality(100)
   })
   config.addShortcode('croppedUrlFor', (image, width, height) => {
     return urlFor(image)
