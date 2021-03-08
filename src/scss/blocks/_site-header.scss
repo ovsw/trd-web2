@@ -4,7 +4,7 @@
   display: flex;
 
   padding: 0 get-size('400');
-  @include media-query('md') {
+  @include media-query('lg') {
     padding: 0;
   
   }
@@ -23,9 +23,9 @@
     display: flex;
     align-items: center;
 
-    @include media-query('md') {
-      margin-left: get-size('800');
-    }
+    // @include media-query('lg') {
+    //   margin-left: get-size('800');
+    // }
 
     a {
       display: flex; align-items: center; 
@@ -58,7 +58,7 @@
     ul {
       display: flex;
       flex-basis: 100%;
-      padding-top: get-size('400');
+      padding-top: 0.85rem;
       
      
     }

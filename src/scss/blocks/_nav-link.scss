@@ -50,6 +50,7 @@
   }
 
   &--underlined {
+    font-size: get-size('400');
     
     &::before {
       visibility: visible;
