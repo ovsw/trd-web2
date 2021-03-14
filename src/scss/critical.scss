@@ -39,7 +39,9 @@ body {
 
 
   @include media-query('lg') {
-    padding-left: 80px;
+    padding-top: 95px;
+    margin-left: 80px;
+    border-left: 1px solid get-color('light');
   }
 
 
@@ -192,30 +194,6 @@ h3{
 @import 'utilities/visually-hidden';
 @import 'utilities/with-sidebar-l';
 @import 'utilities/wrapper';
-
-
-.main-layout {
-
-  & > .margin-area {
-    min-width: 80px;
-    position: fixed;
-    height: 100vh;
-    top:0;
-    left: 0;
-    display: none;
-
-    @include media-query('md') {
-      display: block;
-    }
-  }
-  
-  & .main-area{
-    border-left: 1px solid white;
-    flex-grow: 1;
-    flex-basis: 100%;
-    padding-top: 6rem;
-  }
-}
 
 .social-icon {
   border: 1px solid white;

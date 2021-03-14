@@ -1,0 +1,27 @@
+
+{% macro contentSectionsCourseMaterial(sections) %}
+
+  {% set headingNo = 0 %}
+  {% set subheadingNo = 0 %}
+
+  {% for section in sections %}
+
+    {% if section._type == 'courseChapterTitleSection' %}
+       {% set headingNo = headingNo + 1 %}
+       {% set subheadingNo = 0 %}
+      {% include "sections/courseChapterTitle-section.html" %}
+    {% endif %}
+
+    {% if section._type == 'textOnlySection' %}
+      {% set subheadingNo = subheadingNo + 1 %}
+      {% include "sections/textOnly-section.html" %}
+    {% endif %}
+
+    {% if section._type == 'imageWithTextSection' %}
+      {% set subheadingNo = subheadingNo + 1 %}
+      {% include "sections/imageWithText-section.html" %}
+    {% endif %}
+
+    {% endfor %}
+
+{% endmacro %}

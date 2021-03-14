@@ -1,0 +1,7 @@
+<section class="imageWithTextSection courseMaterialSection">
+  <div class="wrapper flow">
+    <h3>{{headingNo}}.{{subheadingNo}} {{section.title}}{% if section.subtitle %}<span>{{section.subtitle}}</span>{% endif %}</h3>
+    <img src="{% imageUrlFor  section.image, 600 %}" alt="{{section.image.alt}}">
+    {{section.text | blocksToMarkdown | markdownify | safe}}
+  </div>
+</section>

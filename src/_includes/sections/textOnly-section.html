@@ -1,0 +1,6 @@
+<section class="mainTitleSection courseMaterialSection">
+  <div class="wrapper flow">
+    <h3>{{headingNo}}.{{subheadingNo}} {{section.title}}{% if section.subtitle %}<span>{{section.subtitle}}</span>{% endif %}</h3>
+    {{section.text | blocksToMarkdown | markdownify | safe}}
+  </div>
+</section>
