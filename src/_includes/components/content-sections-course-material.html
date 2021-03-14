@@ -12,14 +12,9 @@
       {% include "sections/courseChapterTitle-section.html" %}
     {% endif %}
 
-    {% if section._type == 'textOnlySection' %}
+    {% if section._type == 'rteSectionCourseMaterial' %}
       {% set subheadingNo = subheadingNo + 1 %}
-      {% include "sections/textOnly-section.html" %}
-    {% endif %}
-
-    {% if section._type == 'imageWithTextSection' %}
-      {% set subheadingNo = subheadingNo + 1 %}
-      {% include "sections/imageWithText-section.html" %}
+      {% include "sections/rteCourseMaterial-section.html" %}
     {% endif %}
 
     {% endfor %}

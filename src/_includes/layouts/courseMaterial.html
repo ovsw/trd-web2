@@ -11,8 +11,9 @@
 {% endblock %} #}
 
 {% block content %}
-  <div class="wrapper gap-top-800">
-    <h1>{{siteCourseMaterial.content.title}}</h1>
+  <div class="wrapper gap-top-xl">
+    <p class="color-muted">Modul {{siteCourseMaterial.content.courseModule.content.title}}</p>
+    <h1 class="gap-top-300">{{siteCourseMaterial.content.title}}</h1>
   </div>
   
   {{contentSectionsCourseMaterial(siteCourseMaterial.content.sections)}}

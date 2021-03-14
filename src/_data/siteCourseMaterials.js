@@ -39,6 +39,9 @@ module.exports =  async function() {
 			'seoDescription': coalesce(seo.description, ''),
 			'sections': sections.sections[] {
         ...
+      },
+      courseModule->{
+        ...
       }
 		}
   }

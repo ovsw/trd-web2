@@ -1,5 +1,5 @@
 .courseChapterTitle {
-  background: get-color('light-shade');
+  background: get-color('primary-shade');
   color: get-color('dark');
   padding: get-size('600') 0;
   margin: get-size('xl') 0;
@@ -7,15 +7,12 @@
   top: 95px;
   z-index: 50;
 
- 
-
- @media screen and (min-width: 1480px) {
-    &__inner {
-      margin-left: -3rem;
-    }
+  & .wrapper {
+    max-width: 55rem;
   }
+
   
   h2 {
-    color: get-color('dark');
+    // color: get-color('dark');
   }
 }

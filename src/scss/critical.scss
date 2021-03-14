@@ -37,9 +37,9 @@ body {
 
   @include apply-utility('font', 'base');
 
+  padding-top: 95px;
 
   @include media-query('lg') {
-    padding-top: 95px;
     margin-left: 80px;
     border-left: 1px solid get-color('light');
   }
@@ -299,6 +299,6 @@ h3{
 
 .negative {
   color: get-color('dark');
-  background-color: get-color('light');
+  background-color: get-color('light-shade');
 }
 

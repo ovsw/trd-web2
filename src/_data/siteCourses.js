@@ -31,22 +31,28 @@ const hasToken = !!client.config().token
 
 module.exports =  async function() {
   const sanityResponse = await client.fetch(groq`
-  *[_type == "course"]{
+  *[_id == "courseListingPage"]{
     ...,
     content {
-			...,
-    	'seoTitle': coalesce(seo.title, ''),
-			'seoDescription': coalesce(seo.description, ''),
-			modules[]->{
-        ...
+    	...,
+      courses[]->{
+        ...,
+        content {
+        	...,
+        	modules[]->{
+            ...
+          }
+      	}
       }
-		}
-  }
+  	}
+  }[0]
   `).catch(err => console.error(err))
 
   // processedResponse = processResponse(sanityResponse)
 
-  const reducedDocs = overlayDrafts(hasToken, sanityResponse)
+  const courses  = sanityResponse.content.courses
+
+  const reducedDocs = overlayDrafts(hasToken, courses)
 
   return reducedDocs
 }

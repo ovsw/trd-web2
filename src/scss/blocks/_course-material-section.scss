@@ -1,7 +1,29 @@
 .courseMaterialSection {
   margin: get-size('900') 0;
 
+  & .wrapper {
+    max-width: 50rem;
+  }
+
   h3 {
     margin-bottom: get-size('800');
+  }
+
+  img {
+    width: 100%;
+  }
+
+  figure {
+    @media screen and (min-width: 1060px) {
+      margin-left: calc(-1 * var(--s6));
+      margin-right: calc(-1 * var(--s6));
+    }
+  }
+
+  figcaption{
+    text-align: center;
+    font-size: get-size('400');
+    margin-top: get-size('400');
+    color: get-color('muted');
   }
 }

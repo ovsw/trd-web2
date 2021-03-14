@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+  {# <script>console.log({{sitePage.content.sections | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+  {{pageHeader(sitePage.content.title)}}
+{% endblock %} #}
+
+{% block content %}
+  
+  <div class="">
+    {% for courseItem in siteCourses %}
+
+      {% set course = courseItem.content %}
+
+      <div class="singleCourse {% if loop.index != 1 %}border-top{% endif %}">
+      
+        <div class="wrapper">
+          <div class="flow with-sidebar-left-l box-800 box-xl" style="--sidebar-space: 4rem">
+            <div >
+
+              {# <div class="center-l center-l--top">
+                <img 
+                class=""
+                src="{% imageUrlFor course.mainImage, '300' %}" 
+                alt="{{ alt }}"
+                />
+            </div> #}
+            
+              <div class="flow ">
+                <h2>Curs <strong> <br/>{{course.title}}</strong></h2>
+                <h3 class="upperCaseText text-400" style="font-weight: normal;">{{course.tagline}}</h3>
+
+
+                {{course.description | blocksToMarkdown | markdownify | safe}}
+
+                <div class="cluster-l">
+                  <div>
+                    <span>
+                      <span class="upperCaseText text-400">Începând de la</span>
+                      <div class="text-600"><span class="color-accent">{{course.price}}</span> RON / modul</div>
+                    </span>
+                    <div class="cluster-l">
+                      <div>
+                        <a class="button button--accentDark" href="/cursuri/{{course.slug.current}}"><span>Vezi module</span></a>
+                        <a class="button button--outline" href="/inscriere/"><span>Sesiuni / Înscriere</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {% endfor %}
+  
+  </div>
+{% endblock %}
