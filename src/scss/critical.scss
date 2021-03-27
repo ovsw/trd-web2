@@ -142,6 +142,11 @@ h3{
   border-color: get-color('dark')!important;
 }
 
+blockquote {
+  border-left: 2px solid white;
+  padding-left: get-size('400');
+}
+
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
 ::selection {
@@ -294,7 +299,7 @@ h3{
   position: absolute;
   top:0;
   bottom:0;
-  background-color: get-color('primary-shade');
+  background-color: get-color('accent');
   z-index: 100;
 } 
 

@@ -6,6 +6,7 @@ module.exports = {
     authorReference: ({node}) => `[${node.name}](/authors/${node.slug.current})`,
     code: ({node}) =>
       '```' + node.language + '\n' + node.code + '\n```',
+    iframeEmbed: ({node}) => node.code,
     mainImage: ({node}) => {
 
       if (node.caption) {

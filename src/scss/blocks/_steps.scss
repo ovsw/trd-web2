@@ -32,11 +32,19 @@
       order: -1;
       padding: 0 get-size('400') get-size('400') 0;
     }
+
+    h3 {
+      
+    }
+    p strong {
+      text-transform: uppercase;
+      font-size: get-size('350');
+      letter-spacing: 1px;
+    }
   }
 
   &__item-text {
     @include media-query('md') {
-      margin-bottom: get-size('800');
       padding-right: get-size('800');
     }
   }

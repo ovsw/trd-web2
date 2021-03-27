@@ -15,6 +15,10 @@
       {% include "sections/cta-section.html" %}
     {% endif %}
 
+    {% if section._type == 'stepsSection' %}
+      {% include "sections/steps-section.html" %}
+    {% endif %}
+
     {% if section._type == 'reusedSection' %}
       {% include "sections/reusable-section.html" %}
     {% endif %}

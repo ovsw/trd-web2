@@ -1,7 +1,7 @@
 .radial-gradient {
   position: absolute;
-  left: -140px;
-  top: -150px;
+  left: -340px;
+  top: -350px;
   right: auto;
   bottom: -110px;
   z-index: -1;
@@ -9,12 +9,12 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 800px;
   background-image: 
     radial-gradient(circle farthest-corner at 50% 50%, rgb(255 59 0 / 13%), hsla(0, 0%, 100%, 0) 48%),
     radial-gradient(circle farthest-corner at 50% 50%,
-      rgba(0, 255, 200, 0.27),
+      rgba(255, 196, 0, 0.17),
       rgba(50, 132, 112, 0.12) 35%, 
     	rgba(20, 20, 20, 0) 67%, 
   		rgba(20, 20, 20, 0) 69%

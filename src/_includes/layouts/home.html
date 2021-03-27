@@ -3,7 +3,6 @@
 
 {% block content %}
     {% include "partials/hero.html" %}
-    {% include "partials/steps.html" %}
     {# {% include "partials/courses-old.html" %} #}
     {# {% include "partials/staff.html" %} #}
     {# {% include "partials/testimonials.html" %} #}
@@ -22,6 +21,9 @@
       {% if section._type == 'reusedSection' %}
         {% include "sections/reusable-section.html" %}
       {% endif %} 
+      {% if section._type == 'stepsSection' %}
+        {% include "sections/steps-section.html" %}
+      {% endif %}
       {% if section._type == 'testimonialsSection' %}
         {% include "sections/testimonials-section.html" %}
       {% endif %}
