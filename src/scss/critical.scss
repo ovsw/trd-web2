@@ -31,6 +31,14 @@
 
 body {
   background: get-color('dark-shade');
+  // background-color: #7f5a83;
+  background-color: #000000;
+  background-image: radial-gradient(circle, rgba(10,22,21,1) 0%, rgba(41,4,0,1) 18%, rgba(36,0,50,1) 35%, rgba(10,22,21,1) 100%);
+  background-position: bottom right;
+  background-size: 200vw 200vh;
+  background-attachment: fixed;
+  // background-size: cover;
+
   color: get-color('light-shade');
   line-height: 1.635;
   font-size: get-size('500');

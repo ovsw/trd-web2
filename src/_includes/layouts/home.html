@@ -39,6 +39,19 @@
 
 {% block footerScripts %}
     <script>
+
+    var animation = bodymovin.loadAnimation({
+        // animationData: { /* ... */ },
+        container: document.getElementById('heroLottie'), // required
+        path: 'https://assets10.lottiefiles.com/packages/lf20_27cgfczo.json', // required
+        renderer: 'svg', // required
+        loop: true, // optional
+        autoplay: true, // optional
+        name: "Demo Animation", // optional
+      });
+
+
+      
     new TypeIt("#typeIt", {
       // strings: ["Designeri de Interior", "Arhitecti", "Game Designers"],
       speed: 100,
@@ -52,5 +65,7 @@
     .delete()
     .type("Game Designeri", {delay: 2000})
     .go();
+
+    
   </script>
 {% endblock %}

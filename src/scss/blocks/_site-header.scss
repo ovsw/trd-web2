@@ -1,6 +1,12 @@
 .site-head {
   border-bottom: 1px solid white;
-  background: get-color('dark-shade');
+  background: #111211;
+  background-image: radial-gradient(circle, rgba(10,22,21,1) 0%, rgba(41,4,0,1) 18%, rgba(36,0,50,1) 35%, rgba(10,22,21,1) 100%);
+  background-position: bottom right;
+  background-size: -100vw -100vh ;
+
+  background-size: 200vw 200vh;
+  background-attachment: fixed;
   display: flex;
 
   padding: 0 get-size('400');
@@ -80,12 +86,16 @@
     border-left: 1px solid white;
     display: flex;
     align-items: center;
-    background-color: rgb(23, 37, 37);
+    background-color: get-color('accent');
+    
 
     a {
       padding: 0 get-size('900');
       span {
         color: get-color('light');
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
       }
     }
   }
