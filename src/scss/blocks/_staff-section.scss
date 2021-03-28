@@ -55,4 +55,16 @@
   @include media-query('md') {
     min-width: none;
   }
+  &:hover {
+    
+    & > * {
+      box-shadow: 0 0 40px rgba(255,255,255,0.1),  0 0 60px rgba(255,255,255,0.15);
+    }
+
+    & > div:last-child{
+  transition: transform 0.2s ease-in-out;
+
+      transform: scale(1.1);
+    }
+  }
 }

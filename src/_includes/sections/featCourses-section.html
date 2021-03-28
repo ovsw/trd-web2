@@ -1,77 +1,91 @@
-<div class='featuredCourses [ section ]'>
+<div class='featuredCourses courseCardsSection [  ]'>
 
-    <div class="[ wrapper with-sidebar-left-l ]">        
+    <div class="wrapper">        
 
-      <div>
-        {# LEFT #}
-        <div class="featuredCourses__left" data-aos="slide-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-            <div class="[ flow ]">
-                <h2><span class="headline__accent">Cursuri</span> Design 3D</h2>
-                <h3 class="[ color-primary ]">Pentru orice nivel</h3>
-                <ul>
-                    <li>Adaptate oricarui nivel de cunostinte </li>
-                    <li>Pentru începatori, avansati sau experți </li>
-                    <li>Dureaza 4-8 saptamani </li>
-                    <li>4 ore de practica asistata / sapt. </li>
-                    <li>4 ore de teorie clar explicata / sapt.</li>
-                </ul>
-                <div>
-                    <p class="upperCaseText"><span>plata în rate disponibilă</span><br />
-                    <strong>0743 437 074</strong></p>
-                </div>
-            </div>
-        </div>
-
-        {# RIGHT #}
-        <div class="featuredCourses__right [flow ]">
-
-            <div class="[ course-card ] [ card card__primary flow ]"
-                data-aos="slide-left"
-                {# data-aos-offset="0" #}
-                data-aos-duration="1000"
-                data-aos-delay="250"
-                {#  data-aos-easing="ease-in-out-back"
-                data-aos-mirror="true"
-                data-aos-once="false"
-                data-aos-anchor-placement="top-center" #}
-            >
-                <h3>Architectura &amp; Design Interior
-                    <span class="gap-top-400">Da viata proiectelor tale</span>
-                </h3>
-                <ul>
-                    <li>Invata sa comunici vizual cu clientii prin imagini 3D ale proiectelor tale</li>
-                    <li>Principiile teoretice si skill-urile practice</li>
-                    <li>Cum sa lucrezi rapid si eficient</li>
-                </ul>
-                <div class='course-card__footer'>
-                    <div class="upperCaseText"><span>Incepand de la</span><br /><strong>1000 RON/modul</strong></div>
-                    <a class="[ button button--accentDark ] [ pull-right ]" href="#"><span>Detalii &amp; Inscrieri</span></a>
-                </div>
-            </div>
+        <div class="switcher-l" style="--switcher-margin: 2rem;">
+          <div> <!-- intermediary wrapper -->
             
-            <div class="[ course-card ] [ card card__white flow gap-top-600 ]" 
-                data-aos="slide-left"
-                data-aos-duration="1000"
-                data-aos-easing="ease-in-out-back"
-            >
-                <h3>3D Game Design
-                    <span class="gap-top-400">Level Up Your2 3D Skills</span>
-                </h3>
-                <ul>
-                    <li>Modelare &amp; sculptare</li>
-                    <li>Rigging &amp; animatie</li>
-                    <li>Texturare &amp; renderizare</li>
-                    <li>Optimizare pentru performanta</li>
-                </ul>
-                <div class='course-card__footer'>
-                   
-                    <div class="upperCaseText"><span>Incepand de la</span><br /><strong>1000 RON</strong></div>
-                     <a class="[ button button--accentLight ] [ pull-right ]" href="#"><span>Detalii &amp; Inscrieri</span></a>
-                </div>
-            </div>
+            {% for courseItem in section.courses %}
 
+              {% set course = courseItem.content %}
+
+              {# ITEM #}
+              <div class="courseCardsSection__card 
+                color-dark
+                
+                box-600
+                relative 
+                {% if loop.index != 1 %} {% endif %}
+              ">
+              
+                <div class="grid">
+                  <div class="line horizontal"></div>
+                  <div class="line horizontal"></div>
+                  <div class="line horizontal"></div>
+                  <div class="line vertical"></div>
+                  <div class="line vertical"></div>
+                  <div class="line vertical"></div>
+                  <div class="line vertical"></div>
+                  <div class="shadow"></div>
+              </div>
+
+
+                    
+                      <div class="flow courseCardsSection__card-content">
+                        <h2 class="measure-15">Curs <strong> <br/>{{course.title}}</strong></h2>
+                        <h3 class="text-500" style="font-weight: normal;">{{course.tagline}}</h3>
+                        <ul class="color-accent text-400">
+                          <li>
+                            <span class="text-500" style="position: relative; top: 0.2rem; margin-right: 0.5rem;">
+                              {% include "partials/svg/course-icon.svg" %}</span>
+                              3 module: De Bază, Intermediar și Avansat.
+                          </li>
+                          <li>
+                            <span class="text-500" style="position: relative; top: 0.2rem; margin-right: 0.2rem;">
+                              {% include "partials/svg/clock-light-icon.svg" %}</span>
+                              8 ore / saptămână (4 teorie, 4 practică)
+                          </li>
+                          <li>
+                            <span class="text-500" style="position: relative; top: 0.2rem; margin-right: 0.2rem;">
+                              {% include "partials/svg/calendar-alt-light-icon.svg" %}</span>
+                              4-8 săptamâni / modul
+                          </li>
+                          <li>
+                            <span class="text-500" style="position: relative; top: 0.2rem; margin-right: 0.2rem;">
+                              {% include "partials/svg/money-bill-wave-alt-regular-icon.svg" %}</span>
+                              începând de la 1000 RON / modul
+                          </li>
+                        </ul>
+
+                        <div class="measure-30 courseCardsSection__underlineList">
+                          {{course.description | blocksToMarkdown | markdownify | safe}}
+                        </div>
+
+                        {# <div class="cluster-l">
+                          <div>
+                            <span>
+                              <span class="upperCaseText text-400">Începând de la</span>
+                              <div class="text-600"><span class="color-accent">{{course.price}}</span> RON / modul</div>
+                            </span>
+                            
+                          </div>
+                        </div> #}
+
+                        <div class="cluster-l">
+                              <div>
+                                <a class="button button--accentDark" href="/cursuri/{{course.slug.current}}"><span>Vezi module</span></a>
+                                <a class="button button--outline" href="/inscriere/"><span>Sesiuni / Înscriere</span></a>
+                              </div>
+                            </div>
+                        
+                      </div>
+
+
+              </div>
+              {# ITEM #}
+            {% endfor %}
+          </div>
         </div>
-        {# /RIGHT #}
-      </div>
+      
     </div>
 </div>

@@ -1,0 +1,25 @@
+<section class="hero-inner">
+    
+    <div class="hero-inner__wrapper wrapper">
+    
+      <div class="hero-inner__image [ box-600 ]" data-aos="fade-up" data-aos-delay="200">
+
+        <div id="heroLottie"></div>
+      </div>
+
+      <div class="hero-inner__text [  box-600 md:box-900 flow  ]" >
+        <div class="large-header  gap-top-900">
+          <h1 class="headline" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-out">{{pageTitle | safe}}</h1>
+          <div class="radial-gradient"></div>
+        </div>
+        
+        <div class="md:gap-top-800 flow" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out" data-aos-delay="1500" >
+          {{ sitePage.content.hero.body | blocksToMarkdown | markdownify | safe }}
+        </div>
+        
+        
+      </div>
+
+  </div>
+
+</section>

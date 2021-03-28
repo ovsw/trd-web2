@@ -100,7 +100,7 @@ h3,
 h4 {
   @include apply-utility('leading', 'flat');
   font-weight: 300;
-  color: get-color('light');
+  // color: get-color('light');
 
   strong {
     font-weight: 700;
@@ -252,41 +252,41 @@ blockquote {
   position: relative;
 }
 
-.tooltip {
-  position:fixed;
-  background-color: #fff;
-  color: get-color('dark');
-  border-radius: 200px;
-  top:0;
-  left:0;
-  width: 120px;
-  height: 120px;
-  padding: 45px 0 ;
-  text-align: center;
-  transform: scale(0);
-  transition: transform 0.2s ease-in-out;
-  overflow:hidden;
-  pointer-events: none;
-  cursor: pointer;
+// .tooltip {
+//   position:fixed;
+//   background-color: #fff;
+//   color: get-color('dark');
+//   border-radius: 200px;
+//   top:0;
+//   left:0;
+//   width: 120px;
+//   height: 120px;
+//   padding: 45px 0 ;
+//   text-align: center;
+//   transform: scale(0);
+//   transition: transform 0.2s ease-in-out;
+//   overflow:hidden;
+//   pointer-events: none;
+//   cursor: pointer;
 
-  a {
-    text-decoration: none;
-    font-size: get-size('200');
-    color: #000;
-    text-transform: uppercase;
-    line-height: 2;
-  }
-}
+//   a {
+//     text-decoration: none;
+//     font-size: get-size('200');
+//     color: #000;
+//     text-transform: uppercase;
+//     line-height: 2;
+//   }
+// }
 
 
-.tooltipContainer {
-  cursor: pointer;
-}
-.tooltipContainer .tooltip.active {
+// .tooltipContainer {
+//   cursor: pointer;
+// }
+// .tooltipContainer .tooltip.active {
   
-  transform: scale(1);
+//   transform: scale(1);
   
-}
+// }
 
 [data-aos="example-anim3"] {
   width: 0px;
@@ -315,3 +315,63 @@ blockquote {
   background-color: get-color('light-shade');
 }
 
+.grid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height:360px;
+  overflow: hidden;
+  opacity: 0.6;
+  border-radius: get-size('400');
+  z-index: 0;
+
+  & .line {
+    background: #ff6651;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 1px;
+    transform-origin: top right;
+
+    &:nth-child(1) {
+      top: 120px;
+    }
+    &:nth-child(2) {
+      top: 240px;
+    }
+    &:nth-child(3) {
+      top: 360px;
+    }
+    &:nth-child(4) {
+      top: -120px;
+    }
+    &:nth-child(5) {
+      top: 0px;
+    }
+    &:nth-child(6) {
+      top: 120px;
+    }
+    &:nth-child(7) {
+      top: 240px;
+    }
+  }
+
+  & .line.horizontal {
+    transform: rotate(30deg);
+  }
+  & .line.vertical {
+    transform: rotate(-30deg);
+  }
+
+  & .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 150px -150px 150px #fff inset;
+}
+
+}

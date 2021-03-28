@@ -67,6 +67,19 @@ module.exports =  async function() {
             }
           }
         },
+        _type == "featCoursesSection" => {
+          ...,
+          // ... follow the references to the staff members
+          courses[]->{
+            ...,
+            content {
+              ...,
+              modules[]->{
+                ...
+              }
+            }
+          }
+        },
         // if one of the section is a reusable one...
         _type == "reusedSection" => {
           ...,

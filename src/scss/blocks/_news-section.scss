@@ -1,24 +1,43 @@
 .newsSection {
   padding-top: get-size('800');
+  perspective: 900px;
   
   
   
   &__grid {
    display: flex;
    flex-direction: column;
+   perspective: 900px;
   }
 
   &__item {
     display: flex;
     flex-wrap: wrap;
 
-    transition: all 0.4s ease-in-out;
     text-decoration: none;
-    color: get-color('light');
+    color: get-color('dark');
+    background-color: get-color('light-shade');
+    
+    transition: transform 0.2s ease-in-out, background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    perspective: 900px;
+    transform: rotateX(10deg) scale(0.9);
+    z-index: 1;
+
+    & h3 {
+      color: get-color('dark');
+      transition: all 0.4s ease-in-out;
+    }
 
     &:hover {
-      color: get-color('dark');
-      background-color: get-color('light');
+      color: get-color('light');
+      background-color: rgba($color: get-color('light-shade'), $alpha: 0.1);
+      transform: rotate(0deg) scale(1) translateY(-20px);
+      z-index: 400;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2),  0 0 60px rgba(255,255,255,0.1);
+
+      & h3 {
+        color: get-color('light');
+      }
     }
 
     & > div:nth-child(2) {
@@ -27,10 +46,19 @@
       img {
         object-fit: cover;
       }
+
+      @include media-query('md') {
+
+      }
     }
 
-    & > div:nth-child(2){
-      flex: 1;
+    & > div:nth-child(3){
+      @include media-query('md') {
+        padding-top: calc(var(--s-5) + 3rem);
+        padding-bottom: get-size('800');
+        padding-right: get-size('600');
+        padding-left: 0!important;
+      }
     }
 
     h3 {

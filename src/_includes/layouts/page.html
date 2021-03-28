@@ -7,11 +7,48 @@
   {# <script>console.log({{sitePage.content.sections | dump | safe}})</script> #}
 
 {# {% block underHeader %}
-  {{pageHeader(sitePage.content.title)}}
 {% endblock %} #}
 
 {% block content %}
+
+  {% set pageTitle %}
+    {{sitePage.content.title0}} <strong>{{sitePage.content.title}}</strong> {{sitePage.content.title1}}
+  {% endset %}
+  
+  {% set animationUrl = '' %}
+
+  {% if hardCodedAnimationUrl %}
+  {% set var = value %}
+  {% set animationUrl = hardCodedAnimationUrl %}  
+  {% else %}
+  {% set animationUrl = sitePage.content.hero.animation %} 
+  {% endif %}
+
+  {% if animationUrl %}
+    {% include "partials/hero-inner.html" %}
+  {% else %}
+    {{pageHeader(pageTitle)}}
+  {% endif %}
   
   {{contentSections(sitePage.content.sections)}}
   
+{% endblock %}
+
+{% block footerScripts %}
+
+  {% if animationUrl != '' %}
+      
+  <script>
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('heroLottie'), // required
+        path: '/lottie/{{sitePage.content.hero.animation}}', // required
+        renderer: 'svg', // required
+        loop: true, // optional
+        autoplay: true, // optional
+        name: "Hero Animation", // optional
+      });
+  </script>
+
+  {% endif %}
+
 {% endblock %}

@@ -1,35 +1,7 @@
-.pageHeader {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
+.page-header {
   
-  @include media-query('md') {
-    flex-direction: row;
-    flex-wrap: nowrap;
- }
-
-  &__text {
-   @media screen and (min-width: 1200px) {
-     border: 1px solid white;
-     background-color:get-color('dark');
-     padding: get-size('900');
-    margin-left: calc((var(--s5) + var(--s1)) * -1);
-
-   }
-  }
-
-  &__icon {
-    order: 1;
-    @include media-query('lg') {
-      flex-grow: 1;
-    }
-    img {
-      @include media-query('lg') {
-        max-width: 300px;
-      }
-    }
+  & > div > div {
+    padding-bottom: get-size('800');
   }
 
 }

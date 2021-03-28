@@ -19,6 +19,7 @@
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "get-google-fonts": "^1.2.2",
+    "get-youtube-id": "^1.0.1",
     "gorko": "^0.2.3",
     "groq": "^2.0.1",
     "gulp": "^4.0.2",

@@ -9,3 +9,4 @@ pagination:
   addAllPagesToCollections: true
 permalink: "{{ sitePage.content.slug.current }}/index.html"
 ---
+

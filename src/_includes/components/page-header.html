@@ -1,5 +1,6 @@
 {% macro pageHeader(
     title,
+    date,
     image
    ) %}
 
@@ -27,10 +28,16 @@
 </style>
 {% endif %} #}
 
-<div class="[ page-header section section--skew-bottom-light ]">
-  <div class="page-header__content [ wrapper pannel ]" >
-    <h1>{{title}}</h1>
+
+<div class="page-header section">
+  <div class="wrapper">
+    <div class="flow md:gap-bottom-900 lg:gap-bottom-2xl border-bottom">
+      {% if date %}
+        <time datetime="{{ date | w3DateFilter }}">{{ date | dateFilter }}</time>
+      {% endif %}
+      <h1>{{title | safe}}</h1>
+    </div>
   </div>
-</div>
+</section>
 
 {% endmacro %}

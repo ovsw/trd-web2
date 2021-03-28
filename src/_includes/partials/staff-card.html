@@ -1,6 +1,13 @@
 <div class='[ staff-card ]' data-aos-once="true" data-aos="fade-up" data-aos-delay="{{loop.index * 500}}" data-aos-duration="1000">
-    <div class="staffSection__cardImage tooltipContainer relative" x-data="{ tooltipActive: false }" @mouseenter="tooltipActive = true" @mouseout="tooltipActive = false">
-      <span class="tooltip" x-bind:class="{ 'active': tooltipActive }"><a href="#">Citeste Povestea</a></span>
+    <div class="staffSection__cardImage tooltipContainer relative" 
+    {# x-data="{ tooltipActive: false }" 
+    @mouseenter="tooltipActive = true" 
+    @mouseout="tooltipActive = false" #}
+    >
+      <span class="tooltip" 
+      {# x-bind:class="{ 'active': tooltipActive }" #}
+      >
+      {# <a href="#">Citeste Povestea</a></span> #}
       <img src='{% croppedUrlFor card.content.image, 400, 500 %}'  class='' alt="{{card.content.name}}" />
     </div>
 

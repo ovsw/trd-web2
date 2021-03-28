@@ -1,0 +1,33 @@
+.courseCardsSection {
+  &__card {
+    background-color: #fff;
+    border-radius: get-size('400');
+  }
+  &__card-content {
+    position: relative;
+    z-index: 100;
+  }
+
+  h2 {
+    font-size: get-size('500');
+    text-transform: uppercase;
+    font-weight: bold;
+    strong {
+      font-size: get-size('700');
+      text-transform: capitalize;
+    }
+  }
+  &__underlineList {
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    ul li {
+      padding: get-size('200') 0 get-size('100');
+      font-size: get-size('350');
+      background-position: bottom left;
+      background-image: url(/images/dot-space.png);
+      background-repeat: repeat-x;
+    }
+  }
+}

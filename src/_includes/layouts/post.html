@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+  {# <script>console.log({{sitePage.content.sections | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+{% endblock %} #}
+
+{% block content %}
+
+  {{pageHeader(title=sitePost.content.title, date=sitePost.content.date)}}
+  {{contentSections(sitePost.content.sections)}}
+  
+{% endblock %}

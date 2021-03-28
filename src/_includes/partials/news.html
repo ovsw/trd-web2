@@ -10,7 +10,7 @@
     <div class="[ wrapper ]">
         <div class="newsSection__grid flow box-600 gap-bottom-800">
             {% for post in sitePosts %}
-            <a href="" class='newsSection__item  border-left border-bottom border-right border-top'>
+            <a href="/blog/{{post.content.slug.current}}/" class='newsSection__item  '>
                 <img 
                     class='fullsize'
                     src="{% croppedUrlFor post.content.mainImage, '300', '200' %}" 
@@ -24,16 +24,18 @@
                     sizes="(min-width: 40em) 50vw, 100vw"
                     alt="{{ alt }}"
                 /> #}
-                <div class="flow flow-space-200 box-600">
+                <div class="flow flow-space-200 box-600 lg:box-900">
                   <p class='uppercase text-300'>{{post.content.date | dateFilter}}</p>
                   <h3>{{post.content.title}}</h3>
                 </div>
 
+                <div>
                   <p class="text-400 box-600 measure-30">
                     {{post.content.excerpt}}
                     <br /><br />
                     <span class=""  href="#"><span>Citeste</span>&nbsp;&nbsp; {% include "partials/svg/arrow-diag-light.svg" %} </span>
                   </p>
+                </div>
             </a>
             {% endfor %}
 

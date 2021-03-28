@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 
     @include media-query('md') {
-      padding: 0 0 get-size('600') 0;
+      padding: 0 0 get-size('900') 0;
       flex-wrap: nowrap;
     }
   }
@@ -22,6 +22,7 @@
       position: relative;
       z-index: 1;
     }
+    
   }
 
   &__item-content {
@@ -30,7 +31,7 @@
 
     @include media-query('md') {
       order: -1;
-      padding: 0 get-size('400') get-size('400') 0;
+      padding: 0 get-size('400') 0 0;
     }
 
     h3 {
@@ -46,6 +47,7 @@
   &__item-text {
     @include media-query('md') {
       padding-right: get-size('800');
+      padding-bottom: get-size('800');
     }
   }
 

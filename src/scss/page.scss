@@ -9,9 +9,13 @@ $outputTokenCSS: false;
 
 // Pull in blocks
 
-@import 'blocks/rte-section';
 @import 'blocks/blog-list';
+@import 'blocks/courseCards-section';
+@import 'blocks/hero-inner';
 @import 'blocks/page-header';
+@import 'blocks/rte-section';
+@import 'blocks/youtube-embed';
+
 
 
 // Pull in utilities
