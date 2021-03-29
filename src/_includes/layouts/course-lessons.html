@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+  {# <script>console.log({{sitePage.content.sections | dump | safe}})</script> #}
+
+{# {% block underHeader %}
+{% endblock %} #}
+
+{% block content %}
+
+  {% set pageTitle %}
+    Materiale Curs
+  {% endset %}
+  
+  {% set animationUrl = '' %}
+
+  {% if hardCodedAnimationUrl %}
+  {% set var = value %}
+  {% set animationUrl = hardCodedAnimationUrl %}  
+  {% else %}
+  {% set animationUrl = sitePage.content.hero.animation %} 
+  {% endif %}
+
+  {% if animationUrl %}
+    {% include "partials/hero-inner.html" %}
+  {% else %}
+    {{pageHeader(pageTitle)}}
+  {% endif %}
+  
+  {# {{contentSections(sitePage.content.sections)}} #}
+  
+  <div class="wrapper flow">
+      {% for courseModule in siteCourseModules %}
+        <h3>Curs {{courseModule.content.title}}</h3>
+        <script>console.log({{courseModule.content.lessons | dump | safe}})</script>
+        <ul>
+        {% for lesson in courseModule.content.lessons %}
+          <li>
+            <a href="/materiale-curs/{{courseModule.content.slug.current}}/{{lesson.content.slug.current}}/">
+              {{lesson.content.title}}
+            </a>
+             - {{lesson.content.subtitle}}
+          </li>
+        {% endfor %}
+        </ul>
+      {% endfor %}
+  </div>
+  {# siteCourseMaterial.content.courseModule.content.slug.current #}
+{% endblock %}
+
+{% block footerScripts %}
+
+  {% if animationUrl != '' %}
+      
+  <script>
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('heroLottie'), // required
+        path: '/lottie/{{sitePage.content.hero.animation}}', // required
+        renderer: 'svg', // required
+        loop: true, // optional
+        autoplay: true, // optional
+        name: "Hero Animation", // optional
+      });
+  </script>
+
+  {% endif %}
+
+{% endblock %}
