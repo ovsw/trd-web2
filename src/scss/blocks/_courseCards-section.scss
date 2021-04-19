@@ -30,4 +30,11 @@
       background-repeat: repeat-x;
     }
   }
+  &__icon {
+    position: absolute;
+    top:-2.7rem;
+    right: 0rem;
+    z-index: 900;
+    width: 200px;
+  }
 }

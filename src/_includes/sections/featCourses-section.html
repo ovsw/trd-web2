@@ -17,7 +17,8 @@
                 relative 
                 {% if loop.index != 1 %} {% endif %}
               ">
-              
+              {# <script> console.log({{section | dump | safe}})</script> #}
+              <img class="courseCardsSection__icon" src="{% imageUrlFor courseItem.content.mainImage, 200 %}"/>
                 <div class="grid">
                   <div class="line horizontal"></div>
                   <div class="line horizontal"></div>
