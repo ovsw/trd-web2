@@ -1,0 +1,90 @@
+{% extends "layouts/base.html" %} {% set pageCriticalStyles = ['css/page.css']
+%} {% from 'components/page-header.html' import pageHeader %} {% from
+'components/content-sections.html' import contentSections %} {#
+<script>
+  console.log({{sitePage.content.sections | dump | safe}})
+</script>
+#} {# {% block underHeader %} {% endblock %} #} 
+{% block content %} 
+
+
+  {% set pageTitle %} Înscriere Curs <strong>{{siteCourseSession.content.level}}</strong> {{siteCourseSession.content.courseTitle | safe }} <br /> <strong>{{siteCourseSession.content.startDate | dateFilterYear }}</strong>{% endset %}
+
+
+
+  {% set animationUrl = '' %} 
+
+    {% if hardCodedAnimationUrl %} 
+      {% set var = value %} {% set animationUrl = hardCodedAnimationUrl %} 
+    {% else %} 
+      {% set animationUrl = sitePage.content.hero.animation %} 
+    {% endif %} 
+  {% if animationUrl %} {% include "partials/hero-inner.html" %} {% else %} {{pageHeader(pageTitle)}} {% endif %}
+
+<div class="wrapper flow">
+  
+
+  {% set formSessionParam -%}{{siteCourseSession.content.level}} {{siteCourseSession.content.courseTitle | safe }} - {{siteCourseSession.content.startDate | dateFilterYear }}{%- endset %}
+  {# <script>console.log("xxxx", {{siteCourseSession.content | dump | safe }})</script> #}
+
+
+  <div>
+  <div id="zf_div_F_aqNKw5mxXBJNgsZe1hCMQj_9BeENgfpwX-VKSPCKA"></div>
+  <script type="text/javascript">
+    (function () {
+      try {
+        var f = document.createElement("iframe");
+        f.src =
+          "https://forms.zohopublic.eu/aslmusmus/form/CourseSignupForm/formperma/F_aqNKw5mxXBJNgsZe1hCMQj_9BeENgfpwX-VKSPCKA?zf_rszfm=1&modul={{formSessionParam | encodeUri}}";
+        f.style.border = "none";
+        f.style.height = "447px";
+        f.style.width = "90%";
+        f.style.transition = "all 0.5s ease"; // No I18N
+        var d = document.getElementById(
+          "zf_div_F_aqNKw5mxXBJNgsZe1hCMQj_9BeENgfpwX-VKSPCKA"
+        );
+        d.appendChild(f);
+        window.addEventListener(
+          "message",
+          function () {
+            var zf_ifrm_data = event.data.split("|");
+            var zf_perma = zf_ifrm_data[0];
+            var zf_ifrm_ht_nw = parseInt(zf_ifrm_data[1], 10) + 15 + "px";
+            var iframe = document
+              .getElementById(
+                "zf_div_F_aqNKw5mxXBJNgsZe1hCMQj_9BeENgfpwX-VKSPCKA"
+              )
+              .getElementsByTagName("iframe")[0];
+            if (
+              iframe.src.indexOf("formperma") > 0 &&
+              iframe.src.indexOf(zf_perma) > 0
+            ) {
+              var prevIframeHeight = iframe.style.height;
+              if (prevIframeHeight != zf_ifrm_ht_nw) {
+                iframe.style.height = zf_ifrm_ht_nw;
+              }
+            }
+          },
+          false
+        );
+      } catch (e) {}
+    })();
+  </script>
+  </div>
+  
+</div>
+{# siteCourseMaterial.content.courseModule.content.slug.current #} {% endblock
+%} {% block footerScripts %} {% if animationUrl != '' %}
+
+<script>
+  var animation = bodymovin.loadAnimation({
+    container: document.getElementById("heroLottie"), // required
+    path: "/lottie/{{sitePage.content.hero.animation}}", // required
+    renderer: "svg", // required
+    loop: true, // optional
+    autoplay: true, // optional
+    name: "Hero Animation", // optional
+  });
+</script>
+
+{% endif %} {% endblock %}

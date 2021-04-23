@@ -40,7 +40,9 @@ module.exports =  async function() {
         content {
         	...,
         	modules[]->{
-            ...
+            ...,
+            "relatedSessions": *[_type=='courseSession' && references(^._id)]{ _id, content {startDate, endDate} }
+
           }
       	}
       }

@@ -22,13 +22,13 @@
 
           <h1 class="text-800 measure-10"><div class="text-400 uppercase gap-bottom-400">Curs Tridia:  design 3D pentru</div> <strong>{{siteCourse.content.title}}</strong></h1>
         </div>
-        <div class="pageHeader__icon center-l">
+        {# <div class="pageHeader__icon center-l">
           <img 
               class=" lg:gap-top-800"
               src="{% imageUrlFor siteCourse.content.mainImage, '400' %}" 
               alt="{{ alt }}"
               />
-          </div>
+          </div> #}
       </div>
       
 
@@ -49,21 +49,21 @@
       </div>
 
         {% for module in siteCourse.content.modules %}
-          {% set module = module.content %}
+          {% set moduleContent = module.content %}
         <div class="box-400">
 
           <div class="module flow border-full box-800 negative">
-            {% if module.title == "De Bază"  %}
+            {% if moduleContent.title == "De Bază"  %}
               <h3>{{loop.index}}. Modul <strong>De Bază</strong></h3>
               
             {% else %}
-              {% set moduleLevel = module.title.split(" ") %}
+              {% set moduleLevel = moduleContent.title.split(" ") %}
               <h3>{{loop.index}}. Modul <strong>{{moduleLevel[0]}}</strong> <span class="text-500">{{siteCourse.content.title}}</span></h3>
             {% endif %}
 
-            <p class="text-350 color-dark"><span class="color-accent text-500">{{module.price}}</span> &nbsp;&nbsp; RON</p>
+            <p class="text-350 color-dark"><span class="color-accent text-500">{{moduleContent.price}}</span> &nbsp;&nbsp; RON</p>
 
-            <p class="text-500">{{module.audience}}</p>
+            <p class="text-500">{{moduleContent.audience}}</p>
 
 
             
@@ -73,8 +73,8 @@
             <div>
                 <div class="module__stats border-top cluster-l gap-top-600">
                 <div>
-                  <p class="box-400 border-right">Durată: {{module.duration}}</p>
-                <p class="box-400 ">Mărime Grupă {{module.classSize}}</p>
+                  <p class="box-400 border-right">Durată: {{moduleContent.duration}}</p>
+                <p class="box-400 ">Mărime Grupă {{moduleContent.classSize}}</p>
                 </div>
               </div>
 
@@ -82,25 +82,24 @@
 
                 <div>
                   <h4 @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1" class="color-dark">
-                    Echipament necesar
-                    {% include "partials/svg/icon-caret-down.svg" %}
+                    Echipament necesar &nbsp;&nbsp;{% include "partials/svg/icon-caret-down.svg" %}
                   </h4>
                   <div  x-show.transition.in.duration.800ms="openedIndex == 1">
-                    {{module.equipment | blocksToMarkdown | markdownify | safe}}
+                    {{moduleContent.equipment | blocksToMarkdown | markdownify | safe}}
                   </div>
                 </div>
                 
                 <div>
-                  <h4 @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2" class="color-dark">Cunostințe necesare {% include "partials/svg/icon-caret-down.svg" %}</h4>
+                  <h4 @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2" class="color-dark">Cunostințe necesare &nbsp;&nbsp; {% include "partials/svg/icon-caret-down.svg" %}</h4>
                   <div  x-show.transition.in.duration.800ms="openedIndex == 2">
-                    {{module.experienceReq | blocksToMarkdown | markdownify | safe}}
+                    {{moduleContent.experienceReq | blocksToMarkdown | markdownify | safe}}
                   </div>
                 </div>
 
                 <div>
-                  <h4 @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3" class="color-dark">Programă {% include "partials/svg/icon-caret-down.svg" %}</h4>
+                  <h4 @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3" class="color-dark">Programă &nbsp;&nbsp;{% include "partials/svg/icon-caret-down.svg" %}</h4>
                   <div  x-show.transition.in.duration.800ms="openedIndex == 3">
-                    {{module.Curriculum | blocksToMarkdown | markdownify | safe}}
+                    {{moduleContent.Curriculum | blocksToMarkdown | markdownify | safe}}
                   </div>
                 </div>
                 
@@ -108,16 +107,28 @@
             </div>
               
            
+            <div x-data="{ showSessions: false }">
+              <p @click="showSessions = true" style="cursor: pointer"><a class="button button--accentLight"><span>Vezi Sesiuni / Înscriere</span></a></p>
+              <div x-show.transition.in.duration.800ms="showSessions == true">
+                <h3 class="gap-top-600">Sesiuni</h3>
+                <p class="gap-top-600">pentru acest modul sunt disponibile urmatoarele sesiuni:</p>
+                <ul>
+                {% for session in module.relatedSessions %}
+                  <li>
+                    <a href="/{{session._id}}/">{{session.content.startDate | dateFilter }} - {{session.content.endDate | dateFilter}} (click pentru inscriere)</a>
+                  </li>
+                {% endfor %}
+                </ul>
+              </div>
+            </div>
 
-            
-
-            <div class="cluster-l">
+            {# <div class="cluster-l">
               <div>
-                {# <a class="button button--dark" href="{{module.slug.current}}"><span>Detalii modul</span></a> #}
+                <a class="button button--dark" href="{{module.slug.current}}"><span>Detalii modul</span></a>
                 <a class="button button--outline-dark" href="#"><span>Vezi Sesiuni</span></a>
                 <a class="button button--accentLight" href="#"><span>Înscriere</span></a>
               </div>
-            </div>
+            </div> #}
           </div>
 
       </div>

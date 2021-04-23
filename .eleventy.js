@@ -58,6 +58,7 @@ module.exports = config => {
   config.addFilter('dateFilterMeals', dateFilterMeals);
   config.addFilter('dateFilterYear', dateFilterYear);
   config.addFilter('w3DateFilter', w3DateFilter);
+  config.addFilter('encodeUri', encodeUri);
 
   // ////////////////////////////////////
   // sanity images shortcodes
